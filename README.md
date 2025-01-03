@@ -10,7 +10,7 @@
 [![Forks](https://img.shields.io/github/forks/Nayanika1402/RuRal-ReTreats.svg?style=flat)](https://github.com/Nayanika1402/RuRal-ReTreats/forks)
 [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
-[![Follow](https://img.shields.io/badge/follow-%40traceloopdev-1DA1F2?logo=twitter&style=social)](https://github.com/Nayanika1402) 
+[![Follow](https://img.shields.io/badge/follow-%40Nayanika1402-1DA1F2?logo=twitter&style=social)](https://github.com/Nayanika1402) 
 </div>
 
 
