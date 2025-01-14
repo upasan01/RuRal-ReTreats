@@ -39,6 +39,7 @@
 .logo img:hover {
     transform: scale(1.2); 
     opacity: 1; 
+    filter:brightness(1.2) contrast(1.5);
 }
 
 /* Navigation Menu and Search Alignment */
