@@ -48,3 +48,13 @@ document.getElementById("bus-ticket-form").addEventListener("submit", function (
     alert(`Bus ticket successfully booked!\n\nDetails:\nDeparture: ${departure}\nArrival: ${arrival}\nDate: ${travelDate}\nTickets: ${tickets}\nBus Type: ${busType}`);
 });
 
+
+
+
+
+
+// Chat Button Interaction
+const chatButton = document.getElementById("chat-button");
+chatButton.addEventListener("click", () => {
+    alert("Chat feature is under construction. Coming soon!");
+});
