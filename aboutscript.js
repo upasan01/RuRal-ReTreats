@@ -51,3 +51,12 @@ function toggleFAQ(questionElement) {
     const answerElement = questionElement.nextElementSibling;
     answerElement.style.display = answerElement.style.display === 'block' ? 'none' : 'block';
 }
+
+
+
+
+// Chat Button Interaction
+const chatButton = document.getElementById("chat-button");
+chatButton.addEventListener("click", () => {
+    alert("Chat feature is under construction. Coming soon!");
+});
