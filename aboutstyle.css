@@ -682,15 +682,226 @@
 
     /* Footer Style */
 
-    footer {
-    background: #003366;
-    color: #ffffff;
-    padding: 2rem;
+    /* Footer Styles */
+footer {
+    background: linear-gradient(135deg, #003366, #005f73);
+    color: white;
+    padding:  2rem;
+    font-family: 'Arial', sans-serif;
+    position: relative;
     font-size: 1rem;
     margin-top: 2rem;
-    text-align: center;
     animation: fadeInFooter 2s ease-in-out;
-    }
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info, .footer-links, .footer-contact, .footer-social {
+    flex: 1 1 300px;
+    margin: 1rem;
+}
+
+.footer-info h2, .footer-links h2, .footer-contact h2, .footer-social h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Quick Links Styling */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin: 0.5rem 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-links li:hover {
+    transform: translateX(10px);
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #a5d8ff;
+}
+
+/* Combined Section: Social Media and Events */
+.footer-social-events {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    border-top: 2px solid #ffffff;
+}
+
+.footer-social, .footer-events {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.footer-social h2, .footer-events h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Social Icons */
+.footer-social .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    padding: 12px;
+    border-radius: 50%;
+    background: white;
+    color: #003366;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.social-icon i {
+    font-size: 1.5rem;
+}
+
+.social-icon:nth-child(1) i {
+    color: #3b5998;
+}
+.social-icon:nth-child(2) i {
+    color: #e1306c;
+}
+.social-icon:nth-child(3) i {
+    color: #1da1f2;
+}
+.social-icon:nth-child(4) i {
+    color: #333;
+}
+.social-icon:nth-child(5) i {
+    color: #0077b5;
+}
+.social-icon:nth-child(6) i {
+    color: #25D366;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    background: #a5d8ff;
+    color: white;
+}
+
+/* Event List Styling */
+.footer-events ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: left;
+}
+
+.footer-events ul li {
+    margin: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.footer-events ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #a5d8ff;
+    font-size: 1.2rem;
+}
+
+
+
+/* Newsletter Styling */
+.newsletter {
+    background: #005f73;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    animation: slideIn 0.5s ease-in-out;
+    text-align: center;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    width: 60%;
+    transition: border-color 0.3s ease;
+}
+
+.newsletter input[type="email"]:focus {
+    border-color: #a5d8ff;
+    outline: none;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background-color: white;
+    color: #003366;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: #a5d8ff;
+    transform: scale(1.1);
+}
+
+/* Chat Button */
+#chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #005f73, #001f3e);
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#chat-button:hover {
+    background: #a5d8ff;
+    transform: scale(1.1);
+}
+
+#chat-button i {
+    font-size: 1.5rem;
+}
+
     @keyframes fadeIn {
     from {
     opacity: 0;
