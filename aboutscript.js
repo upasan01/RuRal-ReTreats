@@ -55,8 +55,21 @@ function toggleFAQ(questionElement) {
 
 
 
-// Chat Button Interaction
-const chatButton = document.getElementById("chat-button");
+/* ============================ BACK TO TOP BUTTON ============================ */
+const backToTopBtn = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add("show");
+    } else {
+        backToTopBtn.classList.remove("show");
+    }
+});
+backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+/* ============================ CHAT BUTTON ============================ */
+const chatButton = document.getElementById("chatButton");
 chatButton.addEventListener("click", () => {
-    alert("Chat feature is under construction. Coming soon!");
+    alert("Chat feature is under construction. Coming soon!");
 });
