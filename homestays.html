@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our premium homestays with seamless navigation, interactive filters, and a user-friendly design.">
+    <title>Premium Homestay Listings</title>
+    <link rel="stylesheet" href="homestays.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">Rural-Retreats</a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="homestays.html">HomeStays</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="search">
+                <input type="text" name="search" id="search" placeholder="Search....">
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+    
+    <!-- Parallax Hero Section -->
+<section id="hero" class="hero-section">
+    <div class="parallax-bg"></div> 
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Escape to the Heart of Rural India</h1>
+            <p>Experience the Authentic Charm of Rural Life in Our Handpicked Homestays.</p>
+            <div class="cta-buttons">
+                <a href="#listings" class="btn-cta">Explore Homestays</a>
+                <a href="#booking" class="btn-secondary">Book Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Homestay Listings Section -->
+<section id="listings" class="homestay-listings">
+    <h2>Explore Our Homestays</h2>
+    <p>Discover your ideal retreat with our extensive selection of homestays, tailored to suit your preferences.</p>
+
+    <!-- Filters Section -->
+    <div class="filters-container">
+        <h3>Filters</h3>
+        <div class="filters">
+            <div class="filter-group">
+                <label for="locationFilter">Location:</label>
+                <select id="locationFilter">
+                    <option value="all">All Locations</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="priceFilter">Price Range (₹):</label>
+                <div class="price-slider-container">
+                    <span id="currentPrice" class="current-price">₹1000</span> 
+                    <input type="range" id="priceFilter" min="1000" max="10000" step="100">
+                    <div class="price-range-labels">
+                        <span class="min-price">₹1000</span> 
+                        <span class="max-price">₹10,000</span>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="filter-group">
+                <label for="bedroomFilter">Bedrooms:</label>
+                <select id="bedroomFilter">
+                    <option value="1">1 Bedroom</option>
+                    <option value="2">2 Bedrooms</option>
+                    <option value="3">3 Bedrooms</option>
+                    <option value="4">4+ Bedrooms</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="ratingFilter">Minimum Rating:</label>
+                <select id="ratingFilter">
+                    <option value="all">All Ratings</option>
+                    <option value="4">4 Stars & Above</option>
+                    <option value="3">3 Stars & Above</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="availabilityFilter">Availability:</label>
+                <select id="availabilityFilter">
+                    <option value="all">All</option>
+                    <option value="available">Available</option>
+                    <option value="unavailable">Unavailable</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="sortBy">Sort By:</label>
+                <select id="sortBy">
+                    <option value="priceLowHigh">Price: Low to High</option>
+                    <option value="priceHighLow">Price: High to Low</option>
+                    <option value="ratingsHighLow">Ratings: High to Low</option>
+                    <option value="popularity">Popularity</option>
+                </select>
+            </div>
+        </div>
+        <button id="applyFilters" class="apply-filters-btn">Apply Filters</button>
+    </div>
+
+    <!-- Homestay Cards -->
+<div class="card-container">
+    <div class="homestay-card" data-price="2500" data-bedrooms="1" data-location="Rajasthan" data-status="available" data-rating="4.8">
+        <div class="image-wrapper">
+            <img src="https://www.seawatersports.com/images/places/hem-raj-kulwal-haveli.png" alt="Traditional Haveli in Rajasthan">
+            <span class="rating-badge">⭐ 4.8</span>
+        </div>
+        <div class="card-content">
+            <h3>Traditional Haveli in Rajasthan</h3>
+            <p><strong>Location:</strong> Rajasthan</p>
+            <p><strong>Price:</strong> ₹2500/Day</p>
+            <p><strong>Details:</strong> 🛏️ 1 Bedroom • 🚿 1 Bathroom • 📏 800 sq ft</p>
+            <ul class="amenities">
+                <li>🌾 Organic Farm</li>
+                <li>🍽️ Home-Cooked Meals</li>
+                <li>📶 WiFi Available</li>
+                <li>🐴 Horse Riding</li>
+            </ul>
+            <span class="status-badge available">Available | Booking Open</span>
+        </div>
+        <div class="card-actions">
+            <button class="view-details-btn" title="View Details">View Details</button>
+            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+        </div>
+    </div>
+    
+    <div class="homestay-card" data-price="1800" data-bedrooms="2" data-location="Kerala" data-status="available" data-rating="4.6">
+        <div class="image-wrapper">
+            <img src="https://lh5.googleusercontent.com/p/AF1QipOHZYTHwCo5vsLmEQPQeTL63mW-ZmAZeSeGfr9I=w325-h218-n-k-no" alt="Cozy Cottage in Kerala">
+            <span class="rating-badge">⭐ 4.6</span>
+        </div>
+        <div class="card-content">
+            <h3>Cozy Cottage in Kerala</h3>
+            <p><strong>Location:</strong> Kerala</p>
+            <p><strong>Price:</strong> ₹1800/Day</p>
+            <p><strong>Details:</strong> 🛏️ 2 Bedrooms • 🚿 1 Bathroom • 📏 1000 sq ft</p>
+            <ul class="amenities">
+                <li>🌊 Backwater Views</li>
+                <li>🍽️ Local Cuisine</li>
+                <li>📶 WiFi Available</li>
+                <li>🚴‍♂️ Bicycle Rentals</li>
+            </ul>
+            <span class="status-badge unavailable">Unavailable | Booking Open</span>
+        </div>
+        <div class="card-actions">
+            <button class="view-details-btn" title="View Details">View Details</button>
+            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+        </div>
+    </div>
+    
+    <div class="homestay-card" data-price="2200" data-bedrooms="1" data-location="Himachal Pradesh" data-status="available" data-rating="4.7">
+        <div class="image-wrapper">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipN2NpIwhxZ-3WXpQWwRJAapu0iF2ijHTn79j6Wk=s1360-w1360-h1020" alt="Mountain Retreat in Himachal">
+            <span class="rating-badge">⭐ 4.7</span>
+        </div>
+        <div class="card-content">
+            <h3>Mountain Retreat in Himachal</h3>
+            <p><strong>Location:</strong> Himachal Pradesh</p>
+            <p><strong>Price:</strong> ₹2200/Day</p>
+            <p><strong>Details:</strong> 🛏️ 1 Bedroom • 🚿 1 Bathroom • 📏 900 sq ft</p>
+            <ul class="amenities">
+                <li>🏞️ Scenic Views</li>
+                <li>🔥 Bonfire Area</li>
+                <li>📶 WiFi Available</li>
+                <li>🧗‍♂️ Trekking Guides</li>
+            </ul>
+            <span class="status-badge available">Available | Booking Open</span>
+        </div>
+        <div class="card-actions">
+            <button class="view-details-btn" title="View Details">View Details</button>
+            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+        </div>
+    </div>
+    
+    <div class="homestay-card" data-price="3000" data-bedrooms="3" data-location="Uttarakhand" data-status="available" data-rating="4.9">
+        <div class="image-wrapper">
+            <img src="https://server.ekostay.com/public/property_images/627e101b3d4a6_AnyConv.com__21.webp" alt="Spacious Villa in Uttarakhand">
+            <span class="rating-badge">⭐ 4.9</span>
+        </div>
+        <div class="card-content">
+            <h3>Spacious Villa in Uttarakhand</h3>
+            <p><strong>Location:</strong> Uttarakhand</p>
+            <p><strong>Price:</strong> ₹3000/Day</p>
+            <p><strong>Details:</strong> 🛏️ 3 Bedrooms • 🚿 2 Bathrooms • 📏 2000 sq ft</p>
+            <ul class="amenities">
+                <li>🌳 Lush Gardens</li>
+                <li>🍽️ Chef on Request</li>
+                <li>📶 WiFi Available</li>
+                <li>🧘‍♀️ Yoga Sessions</li>
+            </ul>
+            <span class="status-badge available">Available | Booking Open</span>
+        </div>
+        <div class="card-actions">
+            <button class="view-details-btn" title="View Details">View Details</button>
+            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+        </div>
+    </div>
+
+    <div class="homestay-card" data-price="2800" data-bedrooms="2" data-location="Tamil Nadu" data-status="available" data-rating="4.6">
+        <div class="image-wrapper">
+            <img src="https://lh5.googleusercontent.com/p/AF1QipPDRODhvGqVEKfBwRvjepcIlHWdI1hyZIrn6Vkn=w253-h114-k-no" alt="Heritage Home in Tamil Nadu">
+            <span class="rating-badge">⭐ 4.6</span>
+        </div>
+        <div class="card-content">
+            <h3>Heritage Home in Tamil Nadu</h3>
+            <p><strong>Location:</strong> Tamil Nadu</p>
+            <p><strong>Price:</strong> ₹2800/Day</p>
+            <p><strong>Details:</strong> 🛏️ 2 Bedrooms • 🚿 1 Bathroom • 📏 1200 sq ft</p>
+            <ul class="amenities">
+                <li>🏺 Cultural Tours</li>
+                <li>🍽️ Traditional Cuisine</li>
+                <li>📶 WiFi Available</li>
+                <li>🌅 Sunset Views</li>
+            </ul>
+            <span class="status-badge unavailable">Unavailable | Booking closed</span>
+        </div>
+        <div class="card-actions">
+            <button class="view-details-btn" title="View Details">View Details</button>
+            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+        </div>
+    </div>
+    
+    <div class="homestay-card" data-price="1500" data-bedrooms="1" data-location="Madhya Pradesh" data-status="available" data-rating="4.4">
+        <div class="image-wrapper">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/b7/ec/c4/calor-vanasthali-cottages.jpg?w=300&h=300&s=1" alt="Charming Cottage in Madhya Pradesh">
+            <span class="rating-badge">⭐ 4.4</span>
+        </div>
+        <div class="card-content">
+            <h3>Charming Cottage in Madhya Pradesh</h3>
+            <p><strong>Location:</strong> Madhya Pradesh</p>
+            <p><strong>Price:</strong> ₹1500/Day</p>
+            <p><strong>Details:</strong> 🛏️ 1 Bedroom • 🚿 1 Bathroom • 📏 600 sq ft</p>
+            <ul class="amenities">
+                <li>🌼 Garden Access</li>
+                <li>🍽️ Local Dishes</li>
+                <li>📶 WiFi Available</li>
+                <li>🎣 Fishing Nearby</li>
+            </ul>
+            <span class="status-badge available">Available | Booking Open</span>
+        </div>
+        <div class="card-actions">
+            <button class="view-details-btn" title="View Details">View Details</button>
+            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Interactive Map Section -->
+<section id="map" class="map-section">
+    <h2>Explore Our Homestay Locations</h2>
+    <p>Discover homestays near you or in your desired location with our interactive map. Click on a pin for details.</p>
+
+    <!-- Filters for Map -->
+    <div class="map-filters">
+        <label for="mapLocationFilter">Filter by Location:</label>
+        <select id="mapLocationFilter">
+            <option value="all">All Locations</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+        </select>
+
+        <label for="mapPriceFilter">Price Range:</label>
+        <select id="mapPriceFilter">
+            <option value="all">All Prices</option>
+            <option value="0-2000">₹1000 - ₹3000</option>
+            <option value="2000-5000">₹3000 - ₹5000</option>
+            <option value="5000+">₹5000 - ₹10000</option>
+        </select>
+
+        <button id="mapFilterApply" class="map-filter-btn">Apply Filters</button>
+    </div>
+
+    <!-- Map Container -->
+    <div id="mapContainer" class="map-container">
+        <!-- Interactive map will be dynamically rendered here -->
+    </div>
+</section>
+
+<!-- Booking Section -->
+<section id="booking" class="booking-section">
+    <h2>Book Your Stay</h2>
+    <p>Plan your perfect getaway. Choose your dates, guests, and preferences below to secure your stay.</p>
+
+    <form id="bookingForm">
+        <!-- Date Selection -->
+        <div class="form-group">
+            <label for="checkInDate">Check-In Date:</label>
+            <input type="date" id="checkInDate" required>
+        </div>
+        <div class="form-group">
+            <label for="checkOutDate">Check-Out Date:</label>
+            <input type="date" id="checkOutDate" required>
+        </div>
+
+         <!-- Selected Room Type and Location -->
+         <div class="form-group">
+            <label for="selectedLocation"> Select Location: </label>
+            <select id="selectedLocation" required>
+                <option value="" disabled selected>Select Location</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+            </select>
+        </div>
+
+
+        <!-- Guest Selection -->
+        <div class="form-group">
+            <label for="guestCount">Number of Guests:</label>
+            <select id="guestCount" required>
+                <option value="" disabled selected>Select Guests</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6+ Guests</option>
+            </select>
+        </div>
+
+        <!-- Room Selection -->
+        <div class="form-group">
+            <label for="roomType">Room Type:</label>
+            <select id="roomType" required>
+                <option value="" disabled selected>Select Room Type</option>
+                <option value="single">Single Room</option>
+                <option value="double">Double Room</option>
+                <option value="suite">Suite</option>
+                <option value="villa">Private Villa</option>
+            </select>
+        </div>
+
+        <!-- Special Requests -->
+        <div class="form-group">
+            <label for="specialRequests">Special Requests:</label>
+            <textarea id="specialRequests" placeholder="E.g., early check-in, baby crib, etc." rows="4"></textarea>
+        </div>
+
+        <!-- Price Calculation -->
+        <div class="price-summary">
+            <h3>Total Price:</h3>
+            <p id="priceDisplay">₹0.00</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions">
+            <button type="button" id="calculatePriceBtn" class="calculate-price-btn">Calculate Price</button>
+            <button type="submit" class="book-now-btn">Book Now</button>
+        </div>
+    </form>
+
+<!-- Booking Confirmation Modal -->
+<div class="booking-confirmation-modal" id="bookingConfirmationModal">
+    <div class="modal-content">
+        <span class="close" id="closeConfirmationModal">&times;</span>
+        <h4>Booking Confirmation</h4>
+        <p>Thank you for your booking! Here are your details:</p>
+
+        <div class="booking-summary">
+            <h3>Homestay Details</h3>
+            <p><strong>Location:</strong><span id="confirmselectedLocation"></span></p>
+            <p><strong>Check-In Date:</strong> <span id="confirmCheckInDate"></span></p>
+            <p><strong>Check-Out Date:</strong> <span id="confirmCheckOutDate"></span></p>
+            <p><strong>Number of Guests:</strong> <span id="confirmGuestCount"></span></p>
+            <p><strong>Room Type:</strong> <span id="confirmRoomType"></span></p>
+            <p><strong>Special Requests:</strong> <span id="confirmSpecialRequests"></span></p>
+        </div>
+
+        <div class="payment-info">
+            <h3>Payment Information</h3>
+            <p><strong>Total Cost:</strong> <span id="confirmTotalCost"></span></p>
+            <p><strong>Payment Method:</strong> <span id="confirmPaymentMethod"></span></p>
+        </div>
+
+        <div class="confirmation-actions">
+            <button id="confirmBookingBtn">Confirm Booking</button>
+        </div>
+
+        <div class="confirmation-message" id="confirmationMessage">
+            <h3>Booking Successful!</h3>
+            <p>Your booking reference number is: <span id="bookingReferenceNumber"></span></p>
+            <p>A confirmation email has been sent to your registered email address.</p>
+        </div>
+
+        <div class="rebooking-prompt" id="rebookingPrompt">
+            <h3>Would you like to make another booking?</h3>
+            <button id="yesRebookBtn">Yes</button>
+            <button id="noRebookBtn">No</button>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="testimonials-section">
+    <h2>What Our Guests Say</h2>
+    <div class="testimonial-carousel">
+        <div class="testimonial">
+            <p>"This was one of the most comfortable stays I've ever had. Highly recommend this homestay!"</p>
+            <span>⭐⭐⭐⭐⭐</span>
+            <p>- Sohini Sinha</p>
+        </div>
+        <div class="testimonial">
+            <p>"An unforgettable experience! The hospitality was exceptional and the location perfect."</p>
+            <span>⭐⭐⭐⭐⭐</span>
+            <p>- Shreyoshi Chatterjee</p>
+        </div>
+        <div class="testimonial">
+            <p>"A home away from home. The amenities were top-notch and the staff was incredibly friendly."</p>
+            <span>⭐⭐⭐⭐⭐</span>
+            <p>- Ananya Mondal</p>
+        </div>
+        <div class="testimonial">
+            <p>"I loved every moment of my stay. The views were breathtaking and the service was impeccable."</p>
+            <span>⭐⭐⭐⭐⭐</span>
+            <p>- Snigdha Layek</p>
+        </div>
+    </div>
+    <button class="prev-btn">Previous</button>
+    <button class="next-btn">Next</button>
+    <button class="write-review-btn">Write a Review</button>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <h3>How do I book a homestay?</h3>
+        <p>Use our booking form to select your dates and number of guests. Click "Book Now" to confirm your reservation.</p>
+    </div>
+    <div class="faq-item">
+        <h3>What is the cancellation policy?</h3>
+        <p>Cancellations are free up to 7 days before check-in. A 50% refund is provided for cancellations made within 7 days of check-in.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Are pets allowed in the homestay?</h3>
+        <p>Yes, we are pet-friendly! Please inform us in advance if you plan to bring your pet.</p>
+    </div>
+    <div class="faq-item">
+        <h3>What amenities are included in the homestay?</h3>
+        <p>All our homestays come with free Wi-Fi, kitchen access, and complimentary breakfast.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Is there parking available?</h3>
+        <p>Yes, we offer free parking for all our guests. Please reserve a spot in advance.</p>
+    </div>
+</section>
+
+
+
+
+
+
+    
+
+
+
+
+   <!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-info">
+            <h2>About Rural Retreats</h2>
+            <p>Experience the charm of rural life with our authentic homestays and cultural experiences. Join us in promoting sustainable tourism and preserving local traditions.</p>
+        </div>
+
+        <div class="footer-links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="homestays.html">Homestays</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="events.html">Events Calendar</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h2>Contact Us</h2>
+            <p><strong>Email:</strong> <a href="mailto:info@ruralretreats.com">info@ruralretreats.com</a></p>
+            <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+            <p><strong>Address:</strong> 123 Country Lane, Ruralville, State, ZIP</p>
+        </div>
+
+<div class="footer-social-events">
+<div class="footer-social">
+    <h2>Follow Us</h2>
+    <div class="social-icons">
+        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+</div>
+
+<div class="footer-events">
+    <h2>Upcoming Events</h2>
+    <ul id="event-list">
+        <li>2025: Launching first homestay</li>
+        <li>2025: Expanding to 10 rural communities</li>
+    </ul>
+</div>
+</div>
+
+    <div class="newsletter">
+        <h2>Subscribe for Exclusive Deals</h2>
+        <p>Join our mailing list to receive the latest updates and special offers directly in your inbox.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
+    <p class="footer-credits">&copy; 2025 Rural Retreats. All rights reserved.</p>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
+
+<!-- Chatbot Widget -->     
+<div id="chatButton">
+    <i class="fas fa-comment-dots"></i>
+</div> 
+
+    <script src="homestays.js"></script>
+
+</body>
+</html>
