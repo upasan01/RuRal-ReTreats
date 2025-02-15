@@ -294,3 +294,24 @@ document.addEventListener("DOMContentLoaded", () => {
         displayTestimonials();
     });
     
+     /* faq section */
+     document.addEventListener("DOMContentLoaded",function(){
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach(item => {
+            const questions = item.querySelector(".question");
+            questions.addEventListener("click", function(){
+                item.classList.toggle("active");
+                const ans = item.querySelector(".answer");
+
+                if(ans.style.display === "block")
+                {
+                    ans.style.display = "none";
+                }
+                else
+                {
+                    ans.style.display = "block";
+                }
+            });
+        });
+    });
