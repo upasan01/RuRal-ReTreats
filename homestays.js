@@ -300,6 +300,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         faqItems.forEach(item => {
             const questions = item.querySelector(".question");
+            const arrows = item.querySelector(".arrow");
+
             questions.addEventListener("click", function(){
                 item.classList.toggle("active");
                 const ans = item.querySelector(".answer");
@@ -307,10 +309,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(ans.style.display === "block")
                 {
                     ans.style.display = "none";
+                    arrows.innerHTML = "&#9662;";
                 }
                 else
                 {
                     ans.style.display = "block";
+                    arrows.innerHTML = "&#9652;";
                 }
             });
         });
