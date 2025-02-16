@@ -173,6 +173,9 @@ body {
 /* Call-to-Action Buttons */
 .cta-buttons {
     display: flex;
+    justify-content: center;
+    width: 45vw;
+    align-items: center;
     gap: 20px;
 }
 
@@ -306,6 +309,7 @@ body {
 }
 
 .price-slider-container {
+    padding: 4.5px;
     position: relative;
 }
 
@@ -333,7 +337,7 @@ body {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #007bff;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -997,20 +1001,34 @@ textarea {
 }
 
 .faq-item {
+    display: flex;
+    flex-direction: column;
     border-bottom: 1px solid #ddd;
     padding: 15px 0;
 }
 
+.question
+{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.arrow
+{
+    font-size: 34px;
+    cursor: pointer;
+}
 .faq-item h3 {
     font-size: 1.5em;
     margin: 0;
     cursor: pointer;
 }
 
-.faq-item p {
+.answer{
     margin: 5px 0 15px;
-    font-size: 1em;
+    font-size: 1.3em;
     color: #555;
+    display: none;
 }
 
 
