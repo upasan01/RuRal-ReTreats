@@ -1,485 +1,740 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RuralRetreats - Experience Rural Charm</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">   
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">Rural-Retreats</a>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+
+                <div class="nav-container">
+
+                <!-- HAMBURGER MENU BUTTON -->
+                <button class="hamicon" onclick="toggleMenu()" title="Toggle Menu">
+                    <div class="icon"></div>
+                    <div class="icon"></div>
+                    <div class="icon"></div>
+                </button>    
+
+                    <!-- LOGO -->
+                <div class="logo">
+                    <a href="index.html">Rural-Retreats</a>
+                </div>
+
+                    <!-- NAV MENU -->
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="homestays.html">HomeStays</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+
+                <!-- SEARCH AREA -->
+                <div class="search-area">
+                    <button class="search-btn" onclick="toggleSearch()" title="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Search...">
+                        <button class="go-btn" onclick="handleSearch()">Go</button>
+                    </div>
+                </div>
             </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="homestays.html">HomeStays</a></li>
-                    <li><a href="reviews.html">Reviews</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </nav>
-            <div class="search">
-                <input type="text" name="search" id="search" placeholder="Search....">
-            </div>
-        </div>
-        <nav class="side-container">
-            <div class="subscribe">
-                <a href="#newsletter">Subscribe</a>
-            </div>
-            <ul class="side-menu">
+        </nav>
+
+        <!-- MOBILE MENU (Hidden by Default) -->
+        <div class="mobile-menu">
+            <button class="close-btn" onclick="toggleMenu()">✖</button>
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="homestays.html">HomeStays</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="faq.html">FAQs</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
-        </nav>
-        <div class="mobile-nav">
-            <div class="hamicon">
-                <div class="icon"></div>
-                <div class="icon"></div>
-                <div class="icon"></div>
-            </div>
-            <div class="mobile-logo">
-                <a href="index.html">Rural-Retreats</a>
-            </div>
-            <div class="mobile-search">
-                <input type="text" name="search" id="search" placeholder="Search....">
-            </div>
         </div>
     </header>
 
 <!-- Hero Banner -->
 <section class="hero-banner">
-        <div class="hero-content">
-            <h1>Experience the Charm of Rural Life</h1>
-            <p>Authentic Homestays, Cultural Immersion, Sustainable Tourism.</p>
-            <br>
-            <br>
-            <a href="#" class="cta-button">Explore Now</a>
-        </div>
+    <div class="overlay"></div> <!-- Adds a slight dark overlay for better text contrast -->
+    <div class="hero-content">
+        <h1>Experience the Charm of Rural Life</h1>
+        <p>Authentic Homestays, Cultural Immersion, Sustainable Tourism.</p>
+        <a href="#about-sections" class="cta-button">Explore Now</a>
+    </div>
 </section>
 
-<!-- Highlight Key Offerings -->
-<section class="offerings">
-        <h2>Our Key Offerings</h2>
-        <div class="offerings-grid">
-            <div class="offering-card">
-                <h3>Authentic Rural Homestays</h3>
-                <p>Experience the warmth of local hospitality.</p>
-            </div>
-            <div class="offering-card">
-                <h3>Cultural Experiences</h3>
-                <p>Join local festivals and savor traditional cuisine.</p>
-            </div>
-            <div class="offering-card">
-                <h3>Sustainable Tourism</h3>
-                <p>Empower rural communities through responsible travel.</p>
-            </div>
+ <!-- About Section -->
+ <section class="about-section" id="about-sections">
+    <div class="about-container">
+        <!-- Left Content -->
+        <div class="about-content">
+            <h2>About Us</h2>
+            <h3>Escape the City – Embrace the Serenity</h3>
+            <p>
+                Experience the charm of countryside and beachside homestays with <b>Rural Retreats</b>. 
+                Enjoy <b>cultural heritage, local cuisines, and breathtaking landscapes</b> while staying 
+                in handpicked accommodations at <b>affordable prices</b>.
+            </p>
+            <p>
+                Book your <b>bus tickets</b> and plan your stay in peaceful rural homestays or 
+                rejuvenating beachside cottages. Immerse yourself in <b>local traditions, scenic beauty, and adventure</b> 
+                while making unforgettable memories.
+            </p>
+            <a href="about.html" class="cta-button">Know more</a>
         </div>
-</section>
 
-<!-- Highlight Key features -->
-<section class="features">
-    <h2>What Awaits You?</h2>
-        <div class="feature-grid">
-        <div class="feature-card">
-            <h3>Tranquility</h3>
-            <p>✔ Escape to serene landscapes where time seems to slow down. 🌿</p>
+        <!-- Right Image -->
+        <div class="about-image">
+            <img src="https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                 alt="Scenic Rural Homestay">
         </div>
-        <div class="feature-card">
-            <h3>Adventure</h3>
-            <p>✔ Discover the thrill of exploring untouched rural gems. 🗺</p>
-        </div>
-        <div class="feature-card">
-            <h3>Cultural Discovery</h3>
-            <p>✔ Dive deep into the heart of rural customs, traditions, and lifestyles. 🎨</p>
-        </div>
-        <div class="feature-card">
-            <h3>Personal Connections</h3>
-            <p>✔ Forge meaningful bonds with locals who treat you like family. 🤝</p>
-        </div>
+    </div>
 </section>
 
 <!-- Destination Carousel -->
-<section class="carousel-section">
+<section class="carousel-sections">
     <h2>Explore Our Destinations</h2>
     <div class="carousel-grid destination-grid">
-        <div class="carousel-container">
-            <div class="card destination-card active">
-                <img src="https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2024/01/04/7248732780e25a45c9173980ed56c181_400x400.jpg" alt="Cultural Village" class="destination-image">
+        <div class="carousel-containers">
+
+            <div class="destination-card active">
+                <img src="img/1.jpg" alt="Enchanting Caves" class="destination-image">
+                <h3>Enchanting Caves</h3>
+                <p class="location"><b>📍Location: Ajanta & Ellora Caves, Maharashtra</b></p>
+                <p>A UNESCO World Heritage site, famous for its rock-cut temples, intricate carvings, and ancient Buddhist murals.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/2.jpg" alt="Lush Rainforest" class="destination-image">
+                <h3>Lush Rainforest</h3>
+                <p class="location"><b>📍Location: Silent Valley National Park, Kerala</b></p>
+                <p>A pristine rainforest with diverse wildlife, towering trees, and mesmerizing waterfalls—perfect for nature lovers and trekkers.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/3.jpg" alt="Heritage Town" class="destination-image">
+                <h3>Heritage Town</h3>
+                <p class="location"><b>📍Location: Pondicherry</b></p>
+                <p>With its French colonial architecture, charming beaches, and vibrant café culture, Pondicherry is a perfect blend of history and leisure.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/4.jpg" alt="Snow-Capped Peaks" class="destination-image">
+                <h3>Snow-Capped Peaks</h3>
+                <p class="location"><b>📍Location: Gulmarg, Kashmir</b></p>
+                <p>Famous for its powdery snow, skiing resorts, and breathtaking views of the Himalayas, Gulmarg is a paradise for adventure seekers.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/5.jpg" alt="Hidden Beach Escape" class="destination-image">
+                <h3>Hidden Beach Escape</h3>
+                <p class="location"><b>📍Location: Butterfly Beach, Goa</b></p>
+                <p>A secluded beach with golden sands, stunning sunset views, and a perfect spot for dolphin watching and snorkeling.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+            <div class="destination-card">
+                <img src="img/6.jpg" alt="Serene Lake Retreat" class="destination-image">
+                <h3>Serene Lake Retreat</h3>
+                <p class="location"><b>📍Location: Nainital, Uttarakhand</b></p>
+                <p>Surrounded by lush hills, Nainital Lake is a picturesque spot perfect for boating, leisure walks, and breathtaking sunset views.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/7.jpg" alt="Majestic Waterfalls" class="destination-image">
+                <h3>Majestic Waterfalls</h3>
+                <p class="location"><b>📍Location: Jog Falls, Karnataka</b></p>
+                <p>India’s second-highest waterfall, Jog Falls, offers a mesmerizing sight, especially during monsoons with its powerful cascades.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/8.jpg" alt="Tropical Island" class="destination-image">
+                <h3>Tropical Island</h3>
+                <p class="location"><b>📍Location: Havelock Island, Andaman</b></p>
+                <p>Crystal-clear waters, pristine beaches, and rich marine life make Havelock Island a paradise for scuba diving and relaxation.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/9.jpg" alt="Scenic Highlands" class="destination-image">
+                <h3>Scenic Highlands</h3>
+                <p class="location"><b>📍Location: Chikmagalur, Karnataka</b></p>
+                <p>Known as the ‘Coffee Land of India,’ Chikmagalur’s misty hills and lush coffee plantations create a perfect retreat.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/10.jpg" alt="Mystical Desert Oasis" class="destination-image">
+                <h3>Mystical Desert Oasis</h3>
+                <p class="location"><b>📍Location: Jaisalmer, Rajasthan</b></p>
+                <p>Experience camel safaris, golden sand dunes, and the royal charm of Jaisalmer’s historic forts and heritage sites.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+            <div class="destination-card">
+                <img src="img/11.jpg" alt="Beach Paradise" class="destination-image">
+                <h3>Beach Paradise</h3>
+                <p class="location"><b>📍Location: Palolem Beach, Goa</b></p>
+                <p>A stunning crescent-shaped beach known for its serene beauty and calm waters, ideal for relaxation and adventure.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/12.jpg" alt="Hill Retreat" class="destination-image">
+                <h3>Hill Retreat</h3>
+                <p class="location"><b>📍Location: Munnar, Kerala</b></p>
+                <p>Famous for tea plantations, rolling hills, and mist-covered landscapes, offering a refreshing escape into nature.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/13.jpg" alt="Mountain Escape" class="destination-image">
+                <h3>Mountain Escape</h3>
+                <p class="location"><b>📍Location: Manali, Himachal Pradesh</b></p>
+                <p>Surrounded by the majestic Himalayas, Manali is a perfect spot for trekking, adventure, and breathtaking views.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/14.jpg" alt="Seaside Village" class="destination-image">
+                <h3>Seaside Village</h3>
+                <p class="location"><b>📍Location: Gokarna, Karnataka</b></p>
+                <p>A peaceful coastal town with untouched beaches, perfect for solitude and a spiritual getaway.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/15.jpg" alt="Homestay Haven" class="destination-image">
+                <h3>Homestay Haven</h3>
+                <p class="location"><b>📍Location: Coorg, Karnataka</b></p>
+                <p>Experience warm hospitality, lush greenery, and delicious homemade food in traditional Coorg homestays.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/16.jpg" alt="Beachside Escape" class="destination-image">
+                <h3>Beachside Escape</h3>
+                <p class="location"><b>📍Location: Varkala, Kerala</b></p>
+                <p>Golden sands, breathtaking cliffs, and vibrant beach shacks make Varkala a must-visit coastal retreat.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/17.jpg" alt="Himalayan Retreat" class="destination-image">
+                <h3>Himalayan Retreat</h3>
+                <p class="location"><b>📍Location: Rishikesh, Uttarakhand</b></p>
+                <p>The yoga capital of the world offers breathtaking landscapes and thrilling adventure activities like river rafting.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/18.jpg" alt="Misty Hill Station" class="destination-image">
+                <h3>Misty Hill Station</h3>
+                <p class="location"><b>📍Location: Ooty, Tamil Nadu</b></p>
+                <p>Ooty’s rolling hills, charming tea estates, and colonial architecture make it a popular hill station retreat.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="destination-card">
+                <img src="img/19.jpg" alt="Cultural Village" class="destination-image">
                 <h3>Cultural Village</h3>
-                <p class="location">Location: Raghurajpur Artist Village</p>
-                <p class="rating">Rating: ★★★★★</p>
+                <p class="location"><b>📍Location: Raghurajpur Artist Village</b></p>
                 <p>Raghurajpur Artist Village is a heritage crafts village located about 14 kilometers away from the city of Puri, Odisha, India.</p>
-                <a href="#" class="learn-more">Learn More</a>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
             </div>
-            <div class="card destination-card">
-                <img src="https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2023/12/19/fcb5f2904b2f1df17f74ebf6e8099141_400x400.jpg" alt="Village/Ecotourism" class="destination-image">
+            <div class="destination-card">
+                <img src="img/20.jpg" alt="Village/Ecotourism" class="destination-image">
                 <h3>Village/Ecotourism</h3>
-                <p class="location">Location: Chandigre Village</p>
-                <p class="rating">Rating: ★★★★☆</p>
+                <p class="location"><b>📍Location: Chandigre Village</b></p>
                 <p>Serene and picturesque settlement that showcases the rich cultural heritage and wonderful natural beauty of the region.</p>
-                <a href="#" class="learn-more">Learn More</a>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
             </div>
-            <div class="card destination-card">
-                <img src="https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2023/12/19/d527bd7233e368c71aa961ec7073a653_400x400.jpg" alt="Village/Tourist Attraction" class="destination-image">
+            <div class="destination-card">
+                <img src="img/21.jpg" alt="Village/Tourist Attraction" class="destination-image">
                 <h3>Village/Tourist Attraction</h3>
-                <p class="location">Location: Sasatgre Village</p>
-                <p class="rating">Rating: ★★★★☆</p>
+                <p class="location"><b>📍Location: Sasatgre Village</b></p>
                 <p>Embraced by lush greenery and the serenity of nature, this village offers a tranquil escape from the hustle and bustle of city life.</p>
-                <a href="#" class="learn-more">Learn More</a>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
             </div>
-            <div class="card destination-card">
-                <img src="https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2023/12/26/da1307f967dafff3405b2d3ac270324e_400x400.jpg" alt="Cultural Village" class="destination-image">
+            <div class="destination-card">
+                <img src="img/22.jpg" alt="Cultural Village" class="destination-image">
                 <h3>Cultural Village</h3>
-                <p class="location">Location: Srijani Shilpagram</p>
-                <p class="rating">Rating: ★★★★★</p>
+                <p class="location"><b>📍Location: Srijani Shilpagram</b></p>
                 <p>Ethnographic museum that spreads across 15 acres of land designed to promote and showcase the art, craft, and cultural heritage of Eastern India's tribal communities.</p>
-                <a href="#" class="learn-more">Learn More</a>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="homestays.html" class="learn-more">Learn More</a>
             </div>
         </div>
     </div>
     <div class="carousel-controls">
-        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        <!-- Previous Button -->
+        <button class="prev1" onclick="moveSlide(-1)">&#10094;</button>
+
+        <!-- Next Button -->
+        <button class="next1" onclick="moveSlide(1)">&#10095;</button>
     </div>
 </section>
 
-<!-- Call-to-Action Section -->
-<section class="cta-section">
-    <div class="cta-content">
-        <h2>Join Us in Promoting Heritage</h2>
-        <p>Be a part of our mission to preserve and celebrate rural culture. Your adventure awaits!</p>
-        <a href="#" class="cta-button1">Plan Your Rural Adventure</a>
-    </div>
-</section>
-
-<!-- Bus Ticket Booking Section -->
-<section class="bus-ticket-booking">
-    <h2>Bus Ticket Booking</h2>
-    <form id="bus-ticket-form">
-        <div class="input-group">
-            <input type="text" id="departure" placeholder="Departure Location" required aria-label="Departure Location">
-            <input type="text" id="arrival" placeholder="Arrival Location" required aria-label="Arrival Location">
-        </div>
-        <div class="input-group">
-            <input type="date" id="travel-date" required aria-label="Travel Date">
-            <input type="number" id="tickets" placeholder="Number of Tickets" min="1" required aria-label="Number of Tickets">
-        </div>
-        <div class="input-group">
-            <select id="bus-type" required aria-label="Select Bus Type">
-                <option value="" disabled selected>Select Bus Type</option>
-                <option value="sleeper">Sleeper</option>
-                <option value="semi-sleeper">Semi-Sleeper</option>
-                <option value="luxury">Luxury</option>
-            </select>
-        </div>
-        <button type="submit">Book Now</button>
-    </form>
-</section>
-
-<!-- Impact Section -->
-<section class="impact">
-    <h2>Our Impact</h2>
-    <p>We have supported over <strong>20 families</strong> in rural areas.</p>
-    <p>Contributed to a <strong>50% reduction</strong> in environmental impact.</p>
-    <p>Preserved <strong>15 cultural traditions</strong> through our programs.</p>
-
-    <div class="impact-icons">
-        <div class="impact-icon">
-            <img src="https://www.akrspindia.org.in/akrsp/akrsp_new/assets/custom/images/final_images/Home_Screen_Photos/2.jpg" alt="Families Supported">
-            <h3>20 Families</h3>
-            <p>Empowering families through sustainable practices.</p>
-        </div>
-        <div class="impact-icon">
-            <img src="https://classnotes123.com/wp-content/uploads/2024/01/Carbon-Footprint-Illustration-708x1024-1.jpg" alt="Environmental Impact">
-            <h3>50% Reduction</h3>
-            <p>Significant decrease in carbon footprint.</p>
-        </div>
-        <div class="impact-icon">
-            <img src="https://www.savaari.com/blog/wp-content/uploads/2024/01/1024px-Cluster_of_temples_through_arch_at_Maluti-1.jpg" alt="Cultural Traditions">
-            <h3>15 Traditions</h3>
-            <p>Preserving heritage through community programs.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Combined Contact Information and Newsletter Section -->
-<section class="contact-newsletter">
-    <!-- Contact Information -->
-    <div class="contact-info">
-        <h2>Contact Us</h2>
-        <p>If you have any questions or need assistance, feel free to reach out to us!</p>
-        <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-        <p><strong>Email:</strong> <a href="mailto:info@ruralretreats.com">info@ruralretreats.com</a></p>
-        <div class="social-media">
-            <h3>Follow Us:</h3>
-            <a href="https://www.facebook.com/thecodebird" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/thecodebird.exe" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://x.com/TheCodeBird" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://github.com/Nayanika1402" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/company/thecodebird" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://wa.me/+91XXXXXXXXXX" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-    </div>
-
-<!-- Newsletter Signup -->
-    <div class="newsletter" id="newsletter">
-        <h2>Subscribe for Exclusive Deals</h2>
-        <p>Join our mailing list to receive the latest updates and special offers directly in your inbox.</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Your Email" required>
-            <button type="submit">Subscribe</button>
-        </form>
-    </div>
-</section>
-
-<!-- Testimonials Section -->
-<section class="testimonials-section">
-    <h2>What Our Travelers Say</h2>
-    <div class="testimonials-carousel">
-        <div class="testimonials-container">
-            <div class="testimonial-item">
-                <p>"An unforgettable experience! The hospitality was incredible!" - Sanchali Saha</p>
+<!-- Services Section -->
+<!-- Testimonials Carousel -->
+<section class="carousel-container">
+    <div class="carousel">
+           <h2>What Our Travelers Say</h2>
+           <div class="testimonial-item active">
+            <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Prachi.png" alt="Sanchali Saha">
+                <h4><b>Amazing Homestay Experience</b></h4>
+                <p>"An unforgettable experience! The hospitality was incredible!"</p>
                 <p class="author">- Sanchali Saha</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
             </div>
-            <div class="testimonial-item">
-                <p>"I loved every moment spent in the countryside!" - Ayan Biswas</p>
-                <p class="author">- Ayan Biswas</p>
-            </div>
-            <div class="testimonial-item">
-                <p>"The trip was well organized and exceeded my expectations!"</p>
-                <p class="author">- Priya Sharma</p>
-            </div>
-            <div class="testimonial-item">
-                <p>"A wonderful experience! The guides were knowledgeable and friendly."</p>
-                <p class="author">- Rajesh Kumar</p>
-            </div>
-            <div class="testimonial-item">
-                <p>"I can't recommend this enough! It was a life-changing experience."</p>
-                <p class="author">- Meera Patel</p>
-            </div>
-            <div class="testimonial-item">
-                <p>"Every detail was taken care of, making our vacation stress-free."</p>
-                <p class="author">- Anil Verma</p>
-            </div>
-            <div class="testimonial-item">
-                <p>"The accommodations were top-notch, and the food was delicious!"</p>
-                <p class="author">- Sonakshi Reddy</p>
-            </div>
-            <div class="testimonial-item">
-                <p>"I loved the cultural immersion and the chance to meet locals."</p>
-                <p class="author">- Vikram Singh</p>
-            </div>
-            <div class="testimonial-item">
-                <p>"A fantastic journey through beautiful landscapes and rich history."</p>
-                <p class="author">- Riya Gupta</p>
-            </div>
-            <div class="testimonial-item">
-                <p>"The best travel experience I've ever had! Will definitely return."</p>
-                <p class="author">- Karan Mehta</p>
-            </div>
-            <div class="testimonial-item">
-                <p>"Everything was perfect, from the itinerary to the execution!"</p>
-                <p class="author">- Neha Joshi</p>
-            </div>
-            <div class="testimonial-item">
-                <p>"A truly unforgettable adventure! Thank you for the memories."</p>
-                <p class="author">- Arjun Rao</p>
+
+        <div class="testimonial-item">
+            <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Vaibhav.png" alt="Rajesh Kumar">
+            <h4><b>Comfortable Bus Journey</b></h4>
+            <p>"The bus journey was smooth and comfortable. The seats were spacious, and the staff was very helpful."</p>
+            <p class="author">- Rajesh Kumar</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
             </div>
         </div>
-        <div class="carousel-controls1">
-            <button class="prev" onclick="moveTestimonials(-1)">&#10094;</button>
-            <button class="next" onclick="moveTestimonials(1)">&#10095;</button>
+
+        <div class="testimonial-item">
+            <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Sreesti.png" alt="Priya Mehta">
+            <h4><b>Excellent Services</b></h4>
+            <p>"From booking to the actual trip, everything was seamless. The team was always available to assist us."</p>
+            <p class="author">- Priya Mehta</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
         </div>
-    </div>
+
+        <div class="testimonial-item">
+            <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Saumya.png" alt="Ananya Das">
+            <h4><b>Beautiful Homestay</b></h4>
+            <p>"The homestay was cozy and surrounded by nature. Perfect for a peaceful getaway!"</p>
+            <p class="author">- Ananya Das</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+        <div class="testimonial-item">
+            <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Palak.png" alt="Sonali Sharma">
+            <h4><b>Amazing Homestay Experience</b></h4>
+            <p>"An unforgettable experience! The hospitality was incredible, and the location was serene. Highly recommended!"</p>
+            <p class="author">- Sonali Sharma</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+        <div class="testimonial-item">
+            <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Ayush.png" alt="Vikram Singh">
+            <h4><b>Affordable Payment</b></h4>
+            <p>"The packages were reasonably priced, and the payment process was hassle-free. Great value for money!"</p>
+            <p class="author">- Vikram Singh</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+        <div class="testimonial-item">
+            <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Japit.png" alt="Neha Gupta">
+            <h4><b>Memorable Experience</b></h4>
+            <p>"Every moment of the trip was memorable. The guides were knowledgeable, and the itinerary was well-planned."</p>
+            <p class="author">- Neha Gupta</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+        <div class="testimonial-item">
+            <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Ridham.png" alt="Arjun Patel">
+            <h4><b>Scenic Places</b></h4>
+            <p>"The places we visited were breathtaking. Each location was more beautiful than the last!"</p>
+            <p class="author">- Arjun Patel</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+        <div class="testimonial-item">
+            <img src="https://cdn1.byjus.com/byjusweb/img/successpage/arfaatk.png" alt="Sreham Hazra">
+            <h4><b>Friendly Staff</b></h4>
+            <p>"The staff was very friendly and accommodating. They made us feel at home throughout the trip."</p>
+            <p class="author">- Sreham Hazra</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+        <div class="testimonial-item">
+            <img src="https://cdn1.byjus.com/byjusweb/img/successpage/kunal_kundwani.png" alt="Ravi Shankar">
+            <h4><b>Well-Organized Trip</b></h4>
+            <p>"Everything was well-organized, from transportation to accommodations. We didn’t have to worry about a thing!"</p>
+            <p class="author">- Ravi Shankar</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>  
+        </div>
+
+        <!-- Previous Button -->
+        <button class="button prev" onclick="changeTestimonial(-1)">&#10094;</button>
+
+        <!-- Next Button -->
+        <button class="button next" onclick="changeTestimonial(1)">&#10095;</button>
+
 </section>
 
+<!-- Newsletter Section -->
 <!-- Blog Highlights -->
 <section class="blog-highlights">
-    <h2>Latest from Our Blog</h2>
+    <h2>Latest from Our " Travel Guides & Blog "</h2>
     <div class="blog-container">
         <div class="blog-card">
             <h3>Top 5 Rural Destinations to Visit</h3>
             <p>Discover the hidden gems of rural tourism.</p>
-            <a href="#" class="read-more">Read More</a>
+            <a href="homestays.html" class="read-more">Read More</a>
         </div>
         <div class="blog-card">
             <h3>How to Travel Sustainably</h3>
             <p>Tips for reducing your carbon footprint while traveling.</p>
-            <a href="#" class="read-more">Read More</a>
+            <a href="homestays.html" class="read-more">Read More</a>
         </div>
         <div class="blog-card">
             <h3>Traveling on a Budget</h3>
             <p>Smart tips for exploring the world without breaking the bank.</p>
-            <a href="#" class="read-more">Read More</a>
+            <a href="homestays.html" class="read-more">Read More</a>
         </div>
         <div class="blog-card">
             <h3>Adventure Awaits: Top Hiking Trails</h3>
             <p>Explore breathtaking trails for your next adventure.</p>
-            <a href="#" class="read-more">Read More</a>
+            <a href="homestays.html" class="read-more">Read More</a>
         </div>
     </div>
 </section>
-<!--Review part-->
-<div class="header">
-    <h1> What They're Saying </h1>
-    </div>
-    <div class="container">
-        <div class="card card-1">
-            <i class="fas fa-quote-left"></i>
-        <h4><b>Amazing Homestay Experience</b></h4>    
-        <p>Staying with a local family was unforgettable. The hospitality was unmatched, and the peaceful surroundings made it the perfect rural getaway. It felt like a true home away from home.</p>
-        <p class="name">Anand Mukherjee</p>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-
-        </div>
-        <div class="card card-2">
-            <i class="fas fa-quote-left"></i>
-        <h4><b>Comfortable Bus Journey</b></h4>    
-        <p>The bus ride through scenic rural roads was smooth and comfortable. It was a great way to explore the countryside without any hassle. The journey was relaxing and stress-free.</p>
-        <p class="name">Meghna Roy</p>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half-alt"></i>
-
-        </div>
-        <div class="card card-3">
-            <i class="fas fa-quote-left"></i>
-        <h4><b>Authentic Rural Escape</b></h4>   
-        <p>Absolutely loved the authentic rural experience! The homestay was cozy, the food was delicious, and the hosts made us feel at home. We could truly immerse ourselves in the local culture.</p>
-        <p class="name">Tushar Kapoor</p>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        </div>
-        <div class="card card-4">
-            <i class="fas fa-quote-left"></i>
-        <h4><b>Seamless Hotel Booking</b></h4>    
-        <p>Booking my stay was easy and quick. The hotel was clean, well-maintained, and located in the heart of the rural area. The staff was friendly and ensured a pleasant stay.</p>
-        <p class="name">Rahul Sharma</p>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half-alt"></i>
-
-        </div>
-        <div class="card card-5">
-            <i class="fas fa-quote-left"></i>
-        <h4><b>Memorable Rural Adventure</b></h4>
-        <p>Our trip was made special by this platform. We booked both a homestay and bus journey, which allowed us to experience rural India like never before. Every part of the journey was well-organized.</p>
-        <p class="name">Priya Patel</p>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-
-        </div>
-        <div class="card card-6">
-            <i class="fas fa-quote-left"></i>
-    <h4><b>Warm and Welcoming Hosts</b></h4>
-        <p>Our hosts were incredibly kind and made our stay truly special. The rural surroundings were peaceful, and it was a great way to disconnect and relax. We felt like part of the family.</p>
-        <p class="name">Vikram Singh</p>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        </div>
-    </div>
-
 
 <!-- Footer Section -->
 <footer>
     <div class="footer-container">
-        <div class="footer-info">
-            <h2>About Rural Retreats</h2>
-            <p>Experience the charm of rural life with our authentic homestays and cultural experiences. Join us in promoting sustainable tourism and preserving local traditions.</p>
+        <div class="footer-row">
+            <div class="footer-column">
+                <h4>Rural Retreats</h4>
+                <h3>About Us</h3>
+                <p>We offer budget-friendly tours, curated travel experiences, and luxury escapes worldwide.</p>
+
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="homestays.html">Hotels & Homestays</a></li>
+                    <li><a href="#blog-highlights">Travel Guides</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Customer Support</h3>
+                <p><i class="fas fa-envelope"></i>   <strong> <a href="mailto:info@ruralretreats.com">support@ruralretreats.com</a></strong></p>
+            <p><i class="fas fa-phone"></i>   <strong> +91 629XX XXXXX</strong></p>
+            <p><i class="fas fa-map-marker-alt"></i>  <strong> University Institute Of Technology,
+                The University of Burdwan,
+                Golapbag (North), Burdwan-713104,
+                West Bengal.
+            </p></strong>
+            </div>           
         </div>
 
-        <div class="footer-links">
-            <h2>Quick Links</h2>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="homestays.html">Homestays</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="faq.html">FAQs</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="events.html">Events Calendar</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms of Service</a></li>
-            </ul>
-        </div>
+        <div class="footer-row">
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
 
-        <div class="footer-contact">
-            <h2>Contact Us</h2>
-            <p><strong>Email:</strong> <a href="mailto:info@ruralretreats.com">info@ruralretreats.com</a></p>
-            <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-            <p><strong>Address:</strong> 123 Country Lane, Ruralville, State, ZIP</p>
-        </div>
+            <div class="footer-column">
+                <h3>Language</h3>
+                <label for="language-select">Choose Language:</label>
 
-<div class="footer-social-events">
-<div class="footer-social">
-    <h2>Follow Us</h2>
-    <div class="social-icons">
-        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <select id="language-select">
+                    <option>English</option>
+                    <option>Bengali</option>
+                    <option>Hindi</option>
+                    <option>French</option>
+                    <option>Spanish</option>
+                    <option>German</option>
+                </select>
+            </div>
+
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Subscribe for exclusive travel deals!</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Enter your email" id="newsletter-email">
+                    <button onclick="subscribeNewsletter()"><b>Subscribe</b></button>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
-<div class="footer-events">
-    <h2>Upcoming Events</h2>
-    <ul id="event-list">
-        <li>2025: Launching first homestay</li>
-        <li>2025: Expanding to 10 rural communities</li>
-    </ul>
-</div>
-</div>
-
-    <div class="newsletter">
-        <h2>Subscribe for Exclusive Deals</h2>
-        <p>Join our mailing list to receive the latest updates and special offers directly in your inbox.</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Your Email" required>
-            <button type="submit">Subscribe</button>
-        </form>
+    <div class="footer-bottom">
+        <p>© 2025 Rural-Retreats. All rights reserved. | <a href="pp.html">Privacy Policy</a> | <a href="T&c.html">Terms & Conditions</a></p>
     </div>
-
-    <p class="footer-credits">&copy; 2025 Rural Retreats. All rights reserved.</p>
 </footer>
 
 <!-- Back to Top Button -->
 <button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
 
-<!-- Chatbot Widget -->     
-<div id="chatButton">
-    <i class="fas fa-comment-dots"></i>
-</div> 
+ <!-- Chatbot Floating Button -->
+ <div id="chatButton" class="chatbot-button">
+<i class="fas fa-comment-dots"></i>
+</div>
 
+<!-- Chatbot Modal -->
+<div id="chatModal" class="chatbot-modal">
+    <div class="chatbot-modal-content">
+        <div class="chatbot-header">
+            <h3>Chat with Us</h3>
+            <span class="close-chatbot">&times;</span>
+        </div>
+        <div class="chatbot-body">
+            <div id="chatMessages" class="chat-messages"></div>
+            <div id="typingIndicator" class="typing-indicator">🤖 Bot is typing...</div>
+        </div>
+        <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage" title="Send Message"><i class="fas fa-paper-plane"></i></button>
+                <button id="voiceInput" title="Voice Input"><i class="fas fa-microphone"></i></button>
+                <button id="clearChat" title="Clear Chat"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
