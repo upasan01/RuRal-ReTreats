@@ -10,24 +10,59 @@
 
 <body>
 
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">Rural-Retreats</a>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+
+                <div class="nav-container">
+
+                <!-- HAMBURGER MENU BUTTON -->
+                <button class="hamicon" onclick="toggleMenu()" title="Toggle Menu">
+                    <div class="icon"></div>
+                    <div class="icon"></div>
+                    <div class="icon"></div>
+                </button>    
+
+                    <!-- LOGO -->
+                <div class="logo">
+                    <a href="index.html">Rural-Retreats</a>
+                </div>
+
+                    <!-- NAV MENU -->
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="homestays.html">HomeStays</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+
+                <!-- SEARCH AREA -->
+                <div class="search-area">
+                    <button class="search-btn" onclick="toggleSearch()" title="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Search...">
+                        <button class="go-btn" onclick="handleSearch()">Go</button>
+                    </div>
+                </div>
             </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="homestays.html">HomeStays</a></li>
-                    <li><a href="reviews.html">Reviews</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </nav>
-            <div class="search">
-                <input type="text" name="search" id="search" placeholder="Search....">
-            </div>
+        </nav>
+
+        <!-- MOBILE MENU (Hidden by Default) -->
+        <div class="mobile-menu">
+            <button class="close-btn" onclick="toggleMenu()">✖</button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="homestays.html">HomeStays</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
         </div>
     </header>
 
@@ -56,81 +91,89 @@
     </div>
 
 <!-- Footer Section -->
+<!-- Footer Section -->
 <footer>
     <div class="footer-container">
-        <div class="footer-info">
-            <h2>About Rural Retreats</h2>
-            <p>Experience the charm of rural life with our authentic homestays and cultural experiences. Join us in promoting sustainable tourism and preserving local traditions.</p>
+        <div class="footer-row">
+            <div class="footer-column">
+                <h4>Rural Retreats</h4>
+                <h3>About Us</h3>
+                <p>We offer budget-friendly tours, curated travel experiences, and luxury escapes worldwide.</p>
+
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="homestays.html">Hotels & Homestays</a></li>
+                    <li><a href="#blog-highlights">Travel Guides</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Customer Support</h3>
+                <p><i class="fas fa-envelope"></i>   <strong> <a href="mailto:info@ruralretreats.com">support@ruralretreats.com</a></strong></p>
+            <p><i class="fas fa-phone"></i>   <strong> +91 629XX XXXXX</strong></p>
+            <p><i class="fas fa-map-marker-alt"></i>  <strong> University Institute Of Technology,
+                The University of Burdwan,
+                Golapbag (North), Burdwan-713104,
+                West Bengal.
+            </p></strong>
+            </div>           
         </div>
-    
-        <div class="footer-links">
-            <h2>Quick Links</h2>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="homestays.html">Homestays</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="faq.html">FAQs</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="events.html">Events Calendar</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms of Service</a></li>
-            </ul>
+
+        <div class="footer-row">
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Language</h3>
+                <label for="language-select">Choose Language:</label>
+
+                <select id="language-select">
+                    <option>English</option>
+                    <option>Bengali</option>
+                    <option>Hindi</option>
+                    <option>French</option>
+                    <option>Spanish</option>
+                    <option>German</option>
+                </select>
+            </div>
+
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Subscribe for exclusive travel deals!</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Enter your email" id="newsletter-email">
+                    <button onclick="subscribeNewsletter()"><b>Subscribe</b></button>
+                </div>
+            </div>
         </div>
-    
-        <div class="footer-contact">
-            <h2>Contact Us</h2>
-            <p><strong>Email:</strong> <a href="mailto:info@ruralretreats.com">info@ruralretreats.com</a></p>
-            <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-            <p><strong>Address:</strong> 123 Country Lane, Ruralville, State, ZIP</p>
-        </div>
-    
-    <div class="footer-social-events">
-    <div class="footer-social">
-    <h2>Follow Us</h2>
-    <div class="social-icons">
-        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    </div>
-    </div>
-    
-    <div class="footer-events">
-    <h2>Upcoming Events</h2>
-    <ul id="event-list">
-        <li>2025: Launching first homestay</li>
-        <li>2025: Expanding to 10 rural communities</li>
-    </ul>
-    </div>
-    </div>
-    
-    <div class="newsletter">
-        <h2>Subscribe for Exclusive Deals</h2>
-        <p>Join our mailing list to receive the latest updates and special offers directly in your inbox.</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Your Email" required>
-            <button type="submit">Subscribe</button>
-        </form>
-    </div>
-    
-    <p class="footer-credits">&copy; 2025 Rural Retreats. All rights reserved.</p>
-    </footer>
-    
-    <!-- Simulating long content for scrolling -->
-    <div class="simulated-content"></div>ss
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
-    
-    <!-- Chat Button -->
-    <div id="chatButton" class="chatbot-button">
-        <i class="fas fa-comment-dots"></i>
     </div>
 
-<script src="servicesscript.js"></script>
+    <div class="footer-bottom">
+        <p>© 2025 Rural-Retreats. All rights reserved. | <a href="pp.html">Privacy Policy</a> | <a href="T&c.html">Terms & Conditions</a></p>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
+
+<script src="about.js"></script>
+
 </body>
-</html>muskanS
+</html>
