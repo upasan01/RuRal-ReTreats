@@ -1722,7 +1722,7 @@ footer {
 }
 
 .footer-column h3 {
-    color: #ff8000;
+    color:rgb(3, 28, 57);
     margin-bottom: 15px;
     font-size: 18px;
     text-transform: uppercase;
@@ -1730,7 +1730,7 @@ footer {
 }
 
 a:-webkit-any-link {
-    color: gold;
+    color: white;
     cursor: pointer;
     text-decoration: underline;
 }
@@ -1764,7 +1764,7 @@ a:-webkit-any-link {
 }
 
 .footer-column ul li a {
-    color: #ffdab2;
+    color:rgb(254, 253, 253);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -1794,7 +1794,7 @@ a:-webkit-any-link {
 
 .newsletter button {
     width: 30%;
-    background: #ff8000;
+    background: #0056b3;
     border: none;
     padding: 8px;
     cursor: pointer;
@@ -1805,7 +1805,7 @@ a:-webkit-any-link {
 }
 
 .newsletter button:hover {
-    background: #e66f00;
+    background:rgb(7, 3, 57);
     transform: scale(1.05);
 }
 
@@ -1844,7 +1844,7 @@ a:-webkit-any-link {
 #language-select {
     width: 100%;
     padding: 8px;
-    border: 2px solid #ff8000;
+    border: 2px solid #0056b3;
     border-radius: 5px;
     margin-top: 10px;
     cursor: pointer;
@@ -1866,7 +1866,7 @@ a:-webkit-any-link {
 
 .footer-bottom a:hover {
     text-decoration: underline;
-    color: #ff8000;
+    color:rgb(48, 10, 237);
 }
 
 @keyframes fadeInFooter {
