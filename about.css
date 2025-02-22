@@ -1305,19 +1305,18 @@
 }
 
 .primary-btn:hover {
-    background: #ffffff;
+    background: #0073e6;
     transform: translateY(-3px);
 }
 
 .secondary-btn {
-    background: white;
-    color: #0073e6;
+    background: #0073e6;
+    color: #ffffff;
     border: 2px solid #0073e6;
 }
 
 .secondary-btn:hover {
-    background: #0073e6;
-    color: white;
+    background: #ff8000;
     transform: translateY(-3px);
 }
 

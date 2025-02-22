@@ -495,6 +495,8 @@ h1 {
     }
 }
 
+
+
 .chatbot-button {
 
     position: fixed;
@@ -512,7 +514,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 24px;
     z-index: 1000;
 }
 
@@ -529,7 +531,7 @@ h1 {
     position: fixed;
     bottom: 80px;
     right: 20px;
-    width: 300px;
+    width: 350px;
     background: white;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -793,7 +795,7 @@ h1 {
         right: 15px;
         width: 55px;
         height: 55px;
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .back-to-top-btn {
@@ -816,7 +818,7 @@ h1 {
         right: 10px;
         width: 50px;
         height: 50px;
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .back-to-top-btn {
@@ -853,7 +855,7 @@ h1 {
         right: 10px;
         width: 45px;
         height: 45px;
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .back-to-top-btn {
@@ -881,6 +883,8 @@ h1 {
         font-size: 20px;
     }
 }
+
+
 
 footer {
     padding: 50px 0;
