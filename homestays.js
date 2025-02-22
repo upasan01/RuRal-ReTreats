@@ -219,61 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-    /* ============================ TESTIMONIAL CAROUSAL SECTION ============================ */
-
-    const testimonials = [
-        {
-            text: "This was one of the most comfortable stays I've ever had. Highly recommend this homestay!",
-            name: "Sohini Sinha",
-            rating: "⭐⭐⭐⭐⭐"
-        },
-        {
-            text: "An unforgettable experience! The hospitality was exceptional and the location perfect.",
-            name: "Shreyoshi Chatterjee",
-            rating: "⭐⭐⭐⭐⭐"
-        },
-        {
-            text: "A home away from home. The amenities were top-notch and the staff was incredibly friendly.",
-            name: "Ananya Mondal",
-            rating: "⭐⭐⭐⭐⭐"
-        },
-        {
-            text: "I loved every moment of my stay. The views were breathtaking and the service was impeccable.",
-            name: "Snigdha Layek",
-            rating: "⭐⭐⭐⭐⭐"
-        }
-    ];
-    
-    let currentIndex = 0;
-    
-    function displayTestimonials() {
-        const testimonialElements = document.querySelectorAll('.testimonial');
-        testimonialElements.forEach((element, index) => {
-            element.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
-        });
-    }
-    
-    document.querySelector('.next-btn').addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % testimonials.length;
-        displayTestimonials();
-    });
-    
-    document.querySelector('.prev-btn').addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-        displayTestimonials();
-    });
-    
-    document.querySelector('.write-review-btn').addEventListener('click', () => {
-        const reviewText = prompt("Please enter your review:");
-        const reviewerName = prompt("Please enter your name:");
-        const newTestimonial = {
-            text: reviewText,
-            name: reviewerName,
-            rating: "⭐⭐⭐⭐⭐"
-        };
-        testimonials.push(newTestimonial);
-        displayTestimonials();
-    });
+   
     
      /* faq section */
      document.addEventListener("DOMContentLoaded",function(){
@@ -304,97 +250,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
-    function subscribeNewsletter() {
-        let email = document.getElementById("newsletter-email").value.trim();
-    
-        if (email === "") {
-            alert("⚠️ Please enter a valid email!");
-            return;
-        }
-    
-        if (!validateEmail(email)) {
-            alert("❌ Invalid Email! Please enter a valid email.");
-            return;
-        }
-    
-        alert("✅ Thank you for subscribing!");
-        document.getElementById("newsletter-email").value = "";
-    }
-    
-    function validateEmail(email) {
-        const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return re.test(email);
-    }
-    
     document.addEventListener("DOMContentLoaded", function () {
-        const searchArea = document.querySelector(".search-area");
-        const searchBtn = document.querySelector(".search-btn");
-        const searchBox = document.querySelector(".search-box");
-        const searchInput = document.getElementById("search-input");
-        const goBtn = document.querySelector(".go-btn");
-        const mobileMenu = document.querySelector(".mobile-menu");
-    
-        function hideSearchBox() {
-            searchBox.style.display = "none"; 
-            searchBtn.style.display = "inline-flex"; 
-            searchInput.value = ""; 
-        }
-    
-        function showSearchBox() {
-            searchBox.style.display = "flex"; 
-            searchBtn.style.display = "none"; 
-            searchInput.focus();
-        }
-    
-        function handleSearch() {
-            const query = searchInput.value.trim().toLowerCase();
-    
-            const pages = {
-                "home": "/index.html",
-                "about": "/about.html",
-                "services": "/services.html",
-                "reviews": "/reviews.html",
-                "homestays": "/homestays.html",
-                "contact": "/contact.html"
-            };
-    
-            if (pages[query]) {
-                window.location.href = pages[query];
-            } else {
-                alert("No results found for: " + query);
-            }
-    
-            hideSearchBox(); 
-        }
-    
-        searchBtn.addEventListener("click", function (event) {
-            showSearchBox();
-            event.stopPropagation(); 
-        });
-    
-        document.addEventListener("click", function (event) {
-            if (!searchArea.contains(event.target)) {
-                hideSearchBox();
-            }
-        });
-    
-        searchBox.addEventListener("click", function (event) {
-            event.stopPropagation();
-        });
-    
-        goBtn.addEventListener("click", handleSearch);
-    
-        window.toggleMenu = function () {
-            mobileMenu.classList.toggle("active");
-        };
-    });
-    
-    
-    
-    document.addEventListener("DOMContentLoaded", function () {
-    
+
+        
     
         const backToTopBtn = document.getElementById("backToTop");
         window.addEventListener("scroll", () => {
@@ -407,6 +265,25 @@ document.addEventListener("DOMContentLoaded", () => {
         backToTopBtn.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
+    
+        const testimonials = document.querySelectorAll(".testimonial-item");
+        let currentIndex = 0;
+    
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.toggle("active", i === index);
+            });
+        }
+    
+        function changeTestimonial(direction) {
+            currentIndex = (currentIndex + direction + testimonials.length) % testimonials.length;
+            showTestimonial(currentIndex);
+        }
+    
+        showTestimonial(currentIndex);
+    
+        document.querySelector(".button.prev").addEventListener("click", () => changeTestimonial(-1));
+        document.querySelector(".button.next").addEventListener("click", () => changeTestimonial(1));
     
         const chatButton = document.getElementById("chatButton");
         const chatModal = document.getElementById("chatModal");
@@ -625,3 +502,91 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     });
+    
+    
+    
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchArea = document.querySelector(".search-area");
+        const searchBtn = document.querySelector(".search-btn");
+        const searchBox = document.querySelector(".search-box");
+        const searchInput = document.getElementById("search-input");
+        const goBtn = document.querySelector(".go-btn");
+        const mobileMenu = document.querySelector(".mobile-menu");
+    
+        function hideSearchBox() {
+            searchBox.style.display = "none"; 
+            searchBtn.style.display = "inline-flex"; 
+            searchInput.value = ""; 
+        }
+    
+        function showSearchBox() {
+            searchBox.style.display = "flex"; 
+            searchBtn.style.display = "none"; 
+            searchInput.focus();
+        }
+    
+        function handleSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+    
+            const pages = {
+                "home": "/index.html",
+                "about": "/about.html",
+                "services": "/services.html",
+                "reviews": "/reviews.html",
+                "homestays": "/homestays.html",
+                "contact": "/contact.html"
+            };
+    
+            if (pages[query]) {
+                window.location.href = pages[query];
+            } else {
+                alert("No results found for: " + query);
+            }
+    
+            hideSearchBox(); 
+        }
+    
+        searchBtn.addEventListener("click", function (event) {
+            showSearchBox();
+            event.stopPropagation(); 
+        });
+    
+        document.addEventListener("click", function (event) {
+            if (!searchArea.contains(event.target)) {
+                hideSearchBox();
+            }
+        });
+    
+        searchBox.addEventListener("click", function (event) {
+            event.stopPropagation();
+        });
+    
+        goBtn.addEventListener("click", handleSearch);
+    
+        window.toggleMenu = function () {
+            mobileMenu.classList.toggle("active");
+        };
+    });
+    
+    function subscribeNewsletter() {
+        let email = document.getElementById("newsletter-email").value.trim();
+    
+        if (email === "") {
+            alert("⚠️ Please enter a valid email!");
+            return;
+        }
+    
+        if (!validateEmail(email)) {
+            alert("❌ Invalid Email! Please enter a valid email.");
+            return;
+        }
+    
+        alert("✅ Thank you for subscribing!");
+        document.getElementById("newsletter-email").value = "";
+    }
+    
+    function validateEmail(email) {
+        const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return re.test(email);
+    }

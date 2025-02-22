@@ -279,6 +279,9 @@ window.addEventListener("scroll", function () {
 
 });
 
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const searchArea = document.querySelector(".search-area");
     const searchBtn = document.querySelector(".search-btn");
