@@ -7,23 +7,6 @@
     scroll-behavior: smooth;
 }
 
-/* General Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background: #f4f4f4;
-    color: #333;
-    overflow-x: hidden;
-}
-
-
-/* NAV BAR STYLES */
-
-
-/* Logo Styling */
-
 .navbar {
     background: linear-gradient(135deg, #f9f9f9, #fbfdff);
     padding: 12px 20px;
@@ -131,6 +114,23 @@ body {
 
 .nav-menu li a:hover::after {
     transform: scaleX(1);
+}
+
+
+.login-btn {
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    padding: 8px 8px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #0056b3; /* Darker blue */
 }
 
 .hamicon {
@@ -282,6 +282,7 @@ body {
     border-bottom: 2px solid orange;
 }
 
+
 @keyframes fadeInNav {
     from {
         opacity: 0;
@@ -378,7 +379,7 @@ body {
     position: relative;
     margin-left: 3rem;
     margin-right: 3rem;
-    margin-top:  7rem;
+    margin-top:  2rem;
     border-radius: 10px;
     height: 100vh;
     color: #fff;
