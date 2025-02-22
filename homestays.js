@@ -250,10 +250,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
         
-    
         const backToTopBtn = document.getElementById("backToTop");
         window.addEventListener("scroll", () => {
             if (window.scrollY > 300) {
