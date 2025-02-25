@@ -1,7 +1,11 @@
-/* NAV BAR STYLES */
-
-
-/* Logo Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+}
 
 .navbar {
     background: linear-gradient(135deg, #f9f9f9, #fbfdff);
@@ -110,6 +114,23 @@
 
 .nav-menu li a:hover::after {
     transform: scaleX(1);
+}
+
+
+.login-btn {
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    padding: 8px 8px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #0056b3; /* Darker blue */
 }
 
 .hamicon {
@@ -260,6 +281,7 @@
     color: orange;
     border-bottom: 2px solid orange;
 }
+
 
 @keyframes fadeInNav {
     from {

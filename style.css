@@ -116,6 +116,23 @@
     transform: scaleX(1);
 }
 
+
+.login-btn {
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    padding: 8px 8px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
 .hamicon {
     background: none;
     border: none;
@@ -264,6 +281,7 @@
     color: orange;
     border-bottom: 2px solid orange;
 }
+
 
 @keyframes fadeInNav {
     from {
@@ -1252,6 +1270,8 @@
     margin: 2rem auto;
     max-width: 1200px;
     animation: fadeIn 1s ease-in;
+    background-position: center;
+    background-size: cover;
     }
     .blog-highlights h2 {
     font-size: 2.5rem;
@@ -1270,6 +1290,7 @@
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* background-image: url(https://wallpaperaccess.com/full/488480.jpg); */
     }
     .blog-card:hover {
     transform: translateY(-5px);
