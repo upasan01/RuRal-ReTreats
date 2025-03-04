@@ -444,12 +444,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const query = searchInput.value.trim().toLowerCase();
 
         const pages = {
-            "home": "/index.html",
-            "about": "/about.html",
-            "services": "/services.html",
-            "reviews": "/reviews.html",
-            "homestays": "/homestays.html",
-            "contact": "/contact.html"
+            "home": "../HTML/index.html",
+            "about": "../HTML/about.html",
+            "services": "../HTML/services.html",
+            "reviews": "../HTML/reviews.html",
+            "homestays": "../HTML/homestays.html",
+            "contact": "../HTML/contact.html"
         };
 
         if (pages[query]) {
