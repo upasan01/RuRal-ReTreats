@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
         target.scrollIntoView({ behavior: "smooth" });
     });
 });
-
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("a[href^='#']").forEach(anchor => {
         anchor.addEventListener("click", function (event) {
@@ -17,12 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll(".card");
-
     cards.forEach(card => {
         card.addEventListener("mouseover", () => {
             card.style.transform = "scale(1.1)";
         });
-
         card.addEventListener("mouseleave", () => {
             card.style.transform = "scale(1)";
         });
@@ -32,9 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const testimonials = document.querySelectorAll(".testimonial-item");
     const prevBtn = document.querySelector(".prev-btn");
     const nextBtn = document.querySelector(".next-btn");
-
     let currentIndex = 0;
-
     function showTestimonial(index) {
         testimonials.forEach((testimonial, i) => {
             testimonial.classList.remove("active");
@@ -43,34 +38,26 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
     function nextTestimonial() {
         currentIndex = (currentIndex + 1) % testimonials.length;
         showTestimonial(currentIndex);
     }
-
     function prevTestimonial() {
         currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
         showTestimonial(currentIndex);
     }
-
     nextBtn.addEventListener("click", nextTestimonial);
     prevBtn.addEventListener("click", prevTestimonial);
-
     setInterval(nextTestimonial, 5000); 
 });
-
 document.addEventListener("DOMContentLoaded", function () {
     const counters = document.querySelectorAll(".counter");
-
     counters.forEach(counter => {
         counter.textContent = "0"; 
-
         const updateCounter = () => {
             const target = +counter.getAttribute("data-target"); 
             const speed = target / 100; 
             let count = 0;
-
             const incrementCounter = () => {
                 count += Math.ceil(speed);
                 if (count >= target) {
@@ -80,38 +67,30 @@ document.addEventListener("DOMContentLoaded", function () {
                     setTimeout(incrementCounter, 45);
                 }
             };
-
             incrementCounter();
         };
-
         updateCounter();
     });
 });
-
 document.addEventListener("DOMContentLoaded", function () {
     const filterButtons = document.querySelectorAll(".filter-btn");
     const galleryItems = document.querySelectorAll(".gallery-item");
     const lightbox = document.createElement("div");
     lightbox.classList.add("lightbox");
     document.body.appendChild(lightbox);
-
     const lightboxContent = document.createElement("div");
     lightboxContent.classList.add("lightbox-content");
     lightbox.appendChild(lightboxContent);
-
     const closeLightbox = document.createElement("span");
     closeLightbox.classList.add("close-lightbox");
     closeLightbox.innerHTML = "&times;";
     lightboxContent.appendChild(closeLightbox);
-
     const lightboxImg = document.createElement("img");
     lightboxContent.appendChild(lightboxImg);
-
     filterButtons.forEach(button => {
         button.addEventListener("click", () => {
             document.querySelector(".filter-btn.active").classList.remove("active");
             button.classList.add("active");
-
             const filterValue = button.getAttribute("data-filter");
             galleryItems.forEach(item => {
                 if (filterValue === "all" || item.classList.contains(filterValue)) {
@@ -130,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
-
     galleryItems.forEach(item => {
         item.addEventListener("click", () => {
             const imgSrc = item.querySelector("img").getAttribute("src");
@@ -138,21 +116,16 @@ document.addEventListener("DOMContentLoaded", function () {
             lightbox.classList.add("active");
         });
     });
-
     closeLightbox.addEventListener("click", () => {
         lightbox.classList.remove("active");
     });
-
     lightbox.addEventListener("click", (e) => {
         if (e.target !== lightboxImg) {
             lightbox.classList.remove("active");
         }
     });
-
 });
-
 document.addEventListener("DOMContentLoaded", () => {
-
     document.querySelectorAll(".cta-btn").forEach(button => {
         button.addEventListener("click", function(event) {
             if (this.getAttribute("href").startsWith("#")) {
@@ -162,10 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-
     const observerOptions = { threshold: 0.3 };
     const sectionsToAnimate = document.querySelectorAll(".cta-section, .newsletters, .social-media");
-
     const sectionObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -174,9 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, observerOptions);
-
     sectionsToAnimate.forEach(section => sectionObserver.observe(section));
-
     document.getElementById("subscribe-btn").addEventListener("click", function () {
         let emailInput = document.getElementById("newsletter-emails").value.trim();
         if (emailInput) {
@@ -187,7 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
 const backToTopBtn = document.getElementById("backToTop");
 window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
@@ -199,9 +167,7 @@ window.addEventListener("scroll", () => {
 backToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
-
 document.addEventListener("DOMContentLoaded", function () {
-
     const chatButton = document.getElementById("chatButton");
     const chatModal = document.getElementById("chatModal");
     const sendMessageButton = document.getElementById("sendMessage");
@@ -211,7 +177,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const voiceInputButton = document.getElementById("voiceInput");
     const clearChatButton = document.getElementById("clearChat");
     const typingIndicator = document.getElementById("typingIndicator");
-
     const categories = {
         "Website & Services": [
             "What services does this website offer?",
@@ -278,7 +243,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Do you offer loyalty programs?": "Yes! Our Travel Rewards Program lets you earn points and redeem them for discounts.",
         "How can I stay updated on deals and offers?": "Subscribe to our newsletter or enable WhatsApp notifications for the latest deals."
     };
-
     chatButton.addEventListener("click", () => {
         chatModal.classList.add("active");
         if (!chatMessages.innerHTML.trim()) {
@@ -286,26 +250,21 @@ document.addEventListener("DOMContentLoaded", function () {
             showCategories();
         }
     });
-
     closeChatbot.addEventListener("click", () => {
         appendMessage("bot", "🙏 Thank you for chatting with us. Have a great day!");
         setTimeout(() => {
             chatModal.classList.remove("active");
         }, 2000);
     });
-
     sendMessageButton.addEventListener("click", sendMessage);
     chatInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") sendMessage();
     });
-
     function sendMessage() {
         const userMessage = chatInput.value.trim();
         if (!userMessage) return;
-
         appendMessage("user", userMessage);
         chatInput.value = "";
-
         if (answers[userMessage]) {
             typingIndicator.style.display = "block";
             setTimeout(() => {
@@ -320,11 +279,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1000);
         }
     }
-
     function showCategories() {
         const categoriesContainer = document.createElement("div");
         categoriesContainer.classList.add("options-container");
-
         Object.keys(categories).forEach((category) => {
             const button = document.createElement("button");
             button.classList.add("option-button");
@@ -332,17 +289,13 @@ document.addEventListener("DOMContentLoaded", function () {
             button.addEventListener("click", () => showQuestions(category));
             categoriesContainer.appendChild(button);
         });
-
         chatMessages.appendChild(categoriesContainer);
         scrollToBottom();
     }
-
     function showQuestions(category) {
         appendMessage("user", category);
-
         const questionsContainer = document.createElement("div");
         questionsContainer.classList.add("options-container");
-
         categories[category].forEach((question) => {
             const button = document.createElement("button");
             button.classList.add("option-button");
@@ -350,21 +303,17 @@ document.addEventListener("DOMContentLoaded", function () {
             button.addEventListener("click", () => getAnswer(question));
             questionsContainer.appendChild(button);
         });
-
         chatMessages.appendChild(questionsContainer);
         scrollToBottom();
     }
-
     function getAnswer(question) {
         appendMessage("user", question);
         typingIndicator.style.display = "block";
-
         setTimeout(() => {
             typingIndicator.style.display = "none";
             appendMessage("bot", answers[question] || "🤖 I'm not sure, but I can find out for you!");
         }, 1000);
     }
-
     function appendMessage(sender, message) {
         const messageElement = document.createElement("div");
         messageElement.classList.add("message", sender === "user" ? "user-message" : "bot-message");
@@ -372,43 +321,35 @@ document.addEventListener("DOMContentLoaded", function () {
         chatMessages.appendChild(messageElement);
         scrollToBottom();
     }
-
     function scrollToBottom() {
         setTimeout(() => {
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }, 100);
     }
-
     clearChatButton.addEventListener("click", () => {
         chatMessages.innerHTML = "";
         appendMessage("bot", "👋 Hi there! How can I assist you today?");
         showCategories();
     });
-
     voiceInputButton.addEventListener("click", () => {
         if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
             alert("Your browser does not support voice input.");
             return;
         }
-
         const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
         recognition.lang = "en-US";
         recognition.start();
-
         recognition.onresult = (event) => {
             const voiceMessage = event.results[0][0].transcript;
             chatInput.value = voiceMessage;
             sendMessage();
         };
-
         recognition.onerror = () => {
             appendMessage("bot", "❌ Sorry, I couldn't understand your voice input.");
         };
     });
-
     appendMessage("bot", "👋 Hi there! How can I assist you today?");
     showCategories();
-
  window.addEventListener("scroll", function () {
     let navbar = document.querySelector(".navbar");
     if (window.scrollY > 50) {
@@ -417,33 +358,24 @@ document.addEventListener("DOMContentLoaded", function () {
         navbar.classList.remove("scrolled");
     }
  });
-
 });
 document.addEventListener("DOMContentLoaded", function () {
-    // Selecting Elements
     const menuToggle = document.getElementById("menu-toggle");
     const menuClose = document.getElementById("menu-close");
     const mobileMenu = document.getElementById("mobile-menu");
     const navLinks = document.querySelectorAll(".mobile-menu ul li a");
     const navbar = document.querySelector(".navbar");
-
-    // ✅ Toggle Mobile Menu
     menuToggle.addEventListener("click", () => {
         mobileMenu.classList.add("active");
     });
-
     menuClose.addEventListener("click", () => {
         mobileMenu.classList.remove("active");
     });
-
-    // ✅ Close Mobile Menu when clicking on a link
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
             mobileMenu.classList.remove("active");
         });
     });
-
-    // ✅ Sticky Navbar Effect on Scroll
     window.addEventListener("scroll", function () {
         if (window.scrollY > 50) {
             navbar.classList.add("sticky");
@@ -452,16 +384,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-
 document.addEventListener("DOMContentLoaded", function () {
-    // Selecting Elements
     const searchInput = document.getElementById("search-input");
     const searchBtn = document.querySelector(".search-bar button");
     const mobileSearchInput = document.getElementById("mobile-search-input");
     const mobileSearchBtn = document.querySelector(".mobile-search-bar button");
-
-    // ✅ Search Functionality
     function handleSearch(query) {
         query = query.trim().toLowerCase();
         const pages = {
@@ -478,36 +405,28 @@ document.addEventListener("DOMContentLoaded", function () {
             "pp": "../HTML/pp.html",
             "t&c": "../HTML/t&c.html"
         };
-
         if (pages[query]) {
             window.location.href = pages[query];
         } else {
             alert("No results found for: " + query);
         }
     }
-
-    // ✅ Desktop Search
     searchBtn.addEventListener("click", function () {
         if (searchInput.value.trim() !== "") {
             handleSearch(searchInput.value);
         }
     });
-
-    // ✅ Mobile Search
     mobileSearchBtn.addEventListener("click", function () {
         if (mobileSearchInput.value.trim() !== "") {
             handleSearch(mobileSearchInput.value);
         }
     });
-
-    // ✅ Allow Enter Key to Trigger Search
     searchInput.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
             handleSearch(searchInput.value);
         }
     });
-
     mobileSearchInput.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
@@ -515,25 +434,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-
 function subscribeNewsletter() {
     let email = document.getElementById("newsletter-email").value.trim();
-
     if (email === "") {
         alert("⚠️ Please enter a valid email!");
         return;
     }
-
     if (!validateEmail(email)) {
         alert("❌ Invalid Email! Please enter a valid email.");
         return;
     }
-
     alert("✅ Thank you for subscribing!");
     document.getElementById("newsletter-email").value = "";
 }
-
 function validateEmail(email) {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return re.test(email);

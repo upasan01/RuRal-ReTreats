@@ -5,27 +5,20 @@
     text-decoration: none;
     font-family: 'Arial', sans-serif;
     scroll-behavior: smooth;
-}
-
-
-html, body{
+    }
+    html, body{
     margin: 0;
     padding: 0;
     width: 100%;
     overflow-x: hidden;
-}
-
-
-/* Navigation Menu */
-.nav-menu {
+    }
+    .nav-menu {
     list-style: none;
     display: flex;
     gap: 20px;
     position: relative;
-}
-
-/* Navigation Links */
-.nav-menu a {
+    }
+    .nav-menu a {
     text-decoration: none;
     color: black;
     font-size: 16px;
@@ -34,13 +27,10 @@ html, body{
     position: relative;
     transition: all 0.3s ease-in-out;
     overflow: hidden;
-    
     animation: slideIn 0.5s ease-in-out forwards;
     opacity: 0;
-}
-
-/* Fancy Gradient Hover Effect */
-.nav-menu a::before {
+    }
+    .nav-menu a::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -51,22 +41,17 @@ html, body{
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease-in-out;
-}
-
-.nav-menu a:hover::before {
+    }
+    .nav-menu a:hover::before {
     transform: scaleX(1);
     transform-origin: left;
-}
-
-/* Text Glow Effect on Hover */
-.nav-menu a:hover {
+    }
+    .nav-menu a:hover {
     color: #0073e6;
     text-shadow: 0px 0px 10px rgba(0, 115, 230, 0.3);
     transform: scale(1.05);
-}
-
-/* Dropdown Menu */
-.dropdown-menu {
+    }
+    .dropdown-menu {
     display: none;
     position: absolute;
     background: white;
@@ -80,76 +65,42 @@ html, body{
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-}
-
-/* Show Dropdown on Hover */
-.dropdown:hover .dropdown-menu {
+    }
+    .dropdown:hover .dropdown-menu {
     display: block;
     opacity: 1;
     visibility: visible;
-}
-
-/* Dropdown Items */
-.dropdown-menu li {
+    }
+    .dropdown-menu li {
     padding: 8px 0;
-}
-
-/* Dropdown Links */
-.dropdown-menu a {
+    }
+    .dropdown-menu a {
     padding: 8px 12px;
     display: block;
     transition: background 0.3s, color 0.3s ease-in-out;
-}
-
-.dropdown-menu a:hover {
+    }
+    .dropdown-menu a:hover {
     background: #f1f1f1;
     color: #0073e6;
-}
-
-/* Animation for Links */
-@keyframes slideIn {
+    }
+    @keyframes slideIn {
     from {
-        opacity: 0;
-        transform: translateY(10px);
+    opacity: 0;
+    transform: translateY(10px);
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
     }
-}
-
-
-
-
-
-
-
-
-
-
-.hamicon {
+    }
+    .hamicon {
     display: block;
     font-size: 24px;
     background: none;
     border: none;
     cursor: pointer;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Navbar */
-.navbar {
+    }
+    .navbar {
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     padding: 15px 20px;
@@ -157,74 +108,58 @@ html, body{
     top: 0;
     width: 100%;
     transition: all 0.3s ease-in-out;
-
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     z-index: 1000;
-}
-
-/* Sticky Navbar Effect */
-.navbar.sticky {
+    }
+    .navbar.sticky {
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Navbar Container */
-.nav-container {
+    }
+    .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
     margin: auto;
     width: 100%;
-}
-
-/* Logo */
-.logo a {
+    }
+    .logo a {
     font-size: 2rem;
     font-weight: bold;
     text-decoration: none;
     background: linear-gradient(135deg, #0073e6, #00b894);
-    -webkit-background-clip: text; 
+    -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    font-family: 'Poppins', sans-serif; 
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 8px;
-
-}
-
-.logo a:hover {
-    background: linear-gradient(135deg, #00b894, #0073e6);
-    -webkit-background-clip: text; 
-    background-clip: text; 
-    -webkit-text-fill-color: transparent; 
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Poppins', sans-serif;
     transition: transform 0.3s ease, opacity 0.3s ease;
     display: inline-block;
     padding: 5px 10px;
     border-radius: 8px;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-
+    }
+    .logo a:hover {
+    background: linear-gradient(135deg, #00b894, #0073e6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
     opacity: 0.9;
-}
-
-.logo a::before {
-    content: "🌿"; 
+    }
+    .logo a::before {
+    content: "🌿";
     margin-right: 10px;
     font-size: 1.5rem;
     vertical-align: middle;
-}
-
-/* Navigation Menu */
-
-
-/* Animated Hover Effect */
-.nav-menu a::after {
+    }
+    .nav-menu a::after {
     content: "";
     width: 100%;
     height: 3px;
@@ -235,58 +170,46 @@ html, body{
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease-in-out;
-}
-
-
-.nav-menu a:hover::after {
+    }
+    .nav-menu a:hover::after {
     transform: scaleX(1);
-}
-
-/* Right Section */
-.right-section {
+    }
+    .right-section {
     display: flex;
     align-items: center;
     gap: 15px;
-}
-
-/* Search Bar */
-.search-bar {
+    }
+    .search-bar {
     display: flex;
     align-items: center;
     background: rgba(240, 240, 240, 0.8);
     padding: 6px 12px;
     border-radius: 8px;
     transition: box-shadow 0.3s ease-in-out;
-}
-
-.search-bar:hover {
+    }
+    .search-bar:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.search-bar input {
+    }
+    .search-bar input {
     border: none;
     outline: none;
     background: transparent;
     padding: 5px;
     font-size: 14px;
     flex: 1;
-}
-
-.search-bar button {
+    }
+    .search-bar button {
     background: none;
     border: none;
     cursor: pointer;
     color: #0073e6;
     font-size: 16px;
     transition: color 0.3s ease-in-out;
-}
-
-.search-bar button:hover {
+    }
+    .search-bar button:hover {
     color: #005bb5;
-}
-
-/* Auth Buttons */
-.auth-buttons button {
+    }
+    .auth-buttons button {
     padding: 8px 15px;
     border: none;
     font-size: 14px;
@@ -294,30 +217,25 @@ html, body{
     cursor: pointer;
     transition: all 0.3s;
     border-radius: 5px;
-}
-
-.login-btn {
-    background: #ff6f00;
-    color: #ffffff;
-    border: 2px solid #0073e6;
-}
-
-.login-btn:hover {
-    background: #0073e6;
+    }
+    .login-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #09c4ee, #009dff);
     color: white;
-}
-
-.signup-btn {
-    background: #0073e6;
-    color: white;
-}
-
-.signup-btn:hover {
-    background: #005bb5;
-}
-
-/* Mobile Menu */
-.mobile-menu {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 153, 255, 0.5);
+    }
+    .login-btn:hover {
+    background: linear-gradient(135deg, #0698b8, #035d95);
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(1, 77, 128, 0.882);
+    }
+    .mobile-menu {
     position: fixed;
     top: 0;
     left: -100%;
@@ -328,15 +246,11 @@ html, body{
     transition: left 0.4s ease-in-out;
     padding-top: 20px;
     z-index: 1000;
-}
-
-/* Mobile Menu Active */
-.mobile-menu.active {
+    }
+    .mobile-menu.active {
     left: 0;
-}
-
-/* Close Button */
-.close-btn {
+    }
+    .close-btn {
     position: absolute;
     top: 15px;
     left: 200px;
@@ -344,36 +258,28 @@ html, body{
     cursor: pointer;
     color: red;
     transition: transform 0.3s ease-in-out;
-}
-
-.close-btn:hover {
+    }
+    .close-btn:hover {
     transform: scale(1.2);
-}
-
-/* Mobile Menu Items */
-.mobile-menu ul {
+    }
+    .mobile-menu ul {
     list-style: none;
     padding: 5px;
     text-align: center;
-}
-
-.mobile-menu ul li {
+    }
+    .mobile-menu ul li {
     padding: 20px 0;
-}
-
-.mobile-menu ul li a {
+    }
+    .mobile-menu ul li a {
     text-decoration: none;
     color: black;
     font-size: 18px;
     transition: color 0.3s;
-}
-
-.mobile-menu ul li a:hover {
+    }
+    .mobile-menu ul li a:hover {
     color: #0073e6;
-}
-
-/* Mobile Search Bar */
-.mobile-search-bar {
+    }
+    .mobile-search-bar {
     display: flex;
     align-items: center;
     background: #f1f1f1;
@@ -381,103 +287,100 @@ html, body{
     border-radius: 5px;
     margin: 40px auto;
     width: 90%;
-}
-
-.mobile-search-bar input {
+    }
+    .mobile-search-bar input {
     border: none;
     outline: none;
     background: transparent;
     padding: 5px;
     flex: 1;
     font-size: 14px;
-}
-
-/* Responsive Adjustments */
-@media only screen and (max-width: 1200px) {
+    }
+    @media only screen and (max-width: 1200px) {
     .nav-menu {
-        display: none;
+    display: none;
     }
     .hamicon {
-        display: block;
+    display: block;
     }
     .login-btn {
-        font-size: 1rem;
+    font-size: 1rem;
     }
     .search-bar {
-        display: none;
+    display: none;
     }
-}
-
-/* Small Screens (200px - 319px) */
-@media only screen and (min-width: 200px) {
+    }
+    @media only screen and (min-width: 200px) {
     .nav-container {
-        flex-direction: column;
-        align-items: center;
+    flex-direction: column;
+    align-items: center;
     }
     .logo a {
-        font-size: 1.5rem;
+    font-size: 1.5rem;
     }
     .auth-buttons {
-        gap: 8px;
+    gap: 8px;
     }
-}
-
-/* Mobile Screens (320px - 767px) */
-@media only screen and (min-width: 320px) {
+    }
+    @media only screen and (min-width: 320px) {
     .nav-container {
-        flex-direction: row;
-        justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
     }
     .logo {
-        text-align: center;
+    text-align: center;
     }
     .logo a {
-        font-size: 1.8rem;
+    font-size: 1.8rem;
     }
     .auth-buttons {
-        gap: 10px;
+    gap: 10px;
     }
-}
-
-/* Tablets (768px - 1199px) */
-@media only screen and (min-width: 768px) {
+    }
+    @media only screen and (min-width: 768px) {
     .nav-container {
-        flex-direction: row;
-        justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
     }
     .logo a {
-        font-size: 2rem;
+    font-size: 2rem;
     }
     .auth-buttons {
-        gap: 12px;
+    gap: 12px;
     }
-}
-
-/* Desktops (1200px - 1599px) */
-@media only screen and (min-width: 1200px) {
+    }
+    @media only screen and (min-width: 1200px) {
     .nav-container {
-        max-width: 1300px;
+    max-width: 1300px;
     }
     .nav-menu {
-        display: flex;
+    display: flex;
     }
     .search-bar {
-        display: flex;
+    display: flex;
     }
     .hamicon {
-        display: none;
+    display: none;
     }
-}
-
-/* Large Screens (1600px and Above) */
-@media only screen and (min-width: 1600px) {
+    }
+    @media only screen and (min-width: 1600px) {
     .nav-container {
-        max-width: 1500px;
+    max-width: 1500px;
     }
     .logo a {
-        font-size: 2.5rem;
+    font-size: 2.5rem;
     }
-}
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f7f8;
+        color: #333;
+        line-height: 1.6;
+    }
+
     .hero-section {
     position: relative;
     height: 100vh;
