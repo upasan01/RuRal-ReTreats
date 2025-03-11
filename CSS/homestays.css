@@ -1089,16 +1089,6 @@
     opacity: 1;
     }
     }
-    @keyframes slideIn {
-    from {
-    transform: translateY(-50%);
-    opacity: 0;
-    }
-    to {
-    transform: translateY(0);
-    opacity: 1;
-    }
-    }
     @media only screen and (max-width: 319px) {
     .booking-section {
     padding: 30px 15px;
