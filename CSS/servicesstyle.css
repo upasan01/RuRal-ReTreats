@@ -393,37 +393,44 @@ body {
 h1 {
     font-size: 2.5rem;
     margin-bottom: 40px;
-    color: blue;
+    color: #333;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    text-align: center;
 }
+
 
 /* Services Section (Three Columns) */
 .services {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns */
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
+    font-weight: 500;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 20px;
 }
 
 /* Individual Service Box */
 .service {
     background-color: #f9f9f9;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 25px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+    background: #fff;
 }
 
 .service:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: scale(1.005);
+    font-weight: 600;
 }
+
 
 /* Hover Effect */
 .service::before {
@@ -446,8 +453,8 @@ h1 {
 
 /* Service Image */
 .service img {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 70px;
     margin-bottom: 20px;
     transition: transform 0.3s ease;
 }
@@ -458,12 +465,14 @@ h1 {
 
 /* Service Title */
 .service h2 {
-    font-size: 1.75rem;
-    margin-bottom: 15px;
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color:#0d79ed;
     color:#007bff;
     font-weight: 600;
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 /* Service Description */
@@ -474,22 +483,32 @@ h1 {
     color: black;
     position: relative;
     z-index: 2;
+    padding: 0 15px;
 }
 
 /* Links */
 .service a {
     font-size: 1rem;
-    color: green;
     text-decoration: none;
     font-weight: 500;
     position: relative;
     z-index: 2;
     transition: color 0.3s ease;
+    display: block;
+    text-align: center;
+    background: #3498db;
+    color: #fff;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin: 15px 0;
 }
 
 .service a:hover {
-    color: #0056b3;
     text-decoration: underline;
+    background: #2980b9;
+    font-weight: 550;
+    color: #000000;
+    text-decoration: none;
 }
 
 /* Responsive Design */
