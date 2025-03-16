@@ -2210,22 +2210,85 @@ footer {
     border-radius: 50%;
     background: #ffffff;
     transition: 0.3s ease;
+}.social-icon {
+    font-size: 1.5rem;
+    padding: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    transition: 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
 }
 
 .social-icon i {
     font-size: 1.5rem;
+    transition: 0.3s ease;
 }
 
-.social-icon:nth-child(1) i { color: #3b5998; } 
-.social-icon:nth-child(2) i { color: #e1306c; } 
-.social-icon:nth-child(3) i { color: #1da1f2; } 
-.social-icon:nth-child(4) i { color: #242424; } 
-.social-icon:nth-child(5) i { color: #0077b5; } 
-.social-icon:nth-child(6) i { color: #25D366; } 
+/* Default colors */
+.social-icon:nth-child(1) i { color: #3b5998; }  /* Facebook */
+.social-icon:nth-child(2) i { color: #e1306c; }  /* Instagram */
+.social-icon:nth-child(3) i { color: #1da1f2; }  /* Twitter */
+.social-icon:nth-child(4) i { color: #242424; }  /* GitHub */
+.social-icon:nth-child(5) i { color: #0077b5; }  /* LinkedIn */
+.social-icon:nth-child(6) i { color: #25D366; }  /* WhatsApp */
 
-.social-icon:hover {
-    transform: scale(1.2);
-    background: #000000;
+/* Inverted hover effects */
+.social-icon:nth-child(1):hover {
+    background: #3b5998;
+    transform: scale(1.1);
+    
+}
+
+.social-icon:nth-child(1):hover i {
+    color: white;
+    
+}
+
+.social-icon:nth-child(2):hover {
+    background: #e1306c;
+    transform: scale(1.1);
+}
+
+.social-icon:nth-child(2):hover i {
+    color: white;
+}
+
+.social-icon:nth-child(3):hover {
+    background: #1da1f2;
+    transform: scale(1.1);
+}
+
+.social-icon:nth-child(3):hover i {
+    color: white;
+}
+
+.social-icon:nth-child(4):hover {
+    background: #242424;
+    transform: scale(1.1);
+}
+
+.social-icon:nth-child(4):hover i {
+    color: white;
+}
+
+.social-icon:nth-child(5):hover {
+    background: #0077b5;
+    transform: scale(1.1);
+}
+
+.social-icon:nth-child(5):hover i {
+    color: white;
+}
+
+.social-icon:nth-child(6):hover {
+    background: #25D366;
+    transform: scale(1.1);
+}
+
+.social-icon:nth-child(6):hover i {
     color: white;
 }
 
