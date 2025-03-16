@@ -293,3 +293,226 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const tabLinks = document.querySelectorAll(".tab-link");
+    const tabContents = document.querySelectorAll(".tab-content");
+    const activeTab = document.querySelector(".tab-link.active");
+    if (activeTab) {
+        let tabId = activeTab.getAttribute("data-tab");
+        document.getElementById(tabId).classList.add("active");
+    }
+    tabLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            let tabId = this.getAttribute("data-tab");
+            tabLinks.forEach(btn => btn.classList.remove("active"));
+            tabContents.forEach(content => content.classList.remove("active"));
+            this.classList.add("active");
+            document.getElementById(tabId).classList.add("active");
+        });
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const openBusFormBtn = document.getElementById("open-bus-form");
+    const busInfo = document.getElementById("bus-info");
+    const busForm = document.getElementById("bus-form");
+    const submitBusFormBtn = document.getElementById("submit-bus-form");
+    const passengerForm = document.getElementById("passenger-form");
+    const payNowBtn = document.getElementById("pay-now");
+    const backToBusFormBtn = document.getElementById("back-to-bus-form");
+    const busTypeSelect = document.getElementById("bus-type");
+    const fromSelect = document.getElementById("from");
+    const toSelect = document.getElementById("to");
+    const priceInput = document.getElementById("price");
+    const amenitiesCheckboxes = document.querySelectorAll(".amenities-container input[type='checkbox']");
+    const busFares = {
+        "AC": 800,
+        "Non-AC": 500,
+        "Sleeper": 1000
+    };
+    const distancePricing = {
+        "Madhya Pradesh-Tamil Nadu": 3600,
+        "Madhya Pradesh-Uttarakhand": 1600,
+        "Madhya Pradesh-Himachal Pradesh": 2000,
+        "Madhya Pradesh-Kerala": 4000,
+        "Madhya Pradesh-Rajasthan": 1000,
+        "Tamil Nadu-Uttarakhand": 4400,
+        "Tamil Nadu-Himachal Pradesh": 5000,
+        "Tamil Nadu-Kerala": 1200,
+        "Tamil Nadu-Rajasthan": 3800,
+        "Uttarakhand-Himachal Pradesh": 600,
+        "Uttarakhand-Kerala": 4800,
+        "Uttarakhand-Rajasthan": 1200,
+        "Himachal Pradesh-Kerala": 5600,
+        "Himachal Pradesh-Rajasthan": 1600,
+        "Kerala-Rajasthan": 4400,
+        "Tamil Nadu-Madhya Pradesh": 3600,
+        "Uttarakhand-Madhya Pradesh": 1600,
+        "Himachal Pradesh-Madhya Pradesh": 2000,
+        "Kerala-Madhya Pradesh": 4000,
+        "Rajasthan-Madhya Pradesh": 1000,
+        "Uttarakhand-Tamil Nadu": 4400,
+        "Himachal Pradesh-Tamil Nadu": 5000,
+        "Kerala-Tamil Nadu": 1200,
+        "Rajasthan-Tamil Nadu": 3800,
+        "Himachal Pradesh-Uttarakhand": 600,
+        "Kerala-Uttarakhand": 4800,
+        "Rajasthan-Uttarakhand": 1200,
+        "Kerala-Himachal Pradesh": 5600,
+        "Rajasthan-Himachal Pradesh": 1600,
+        "Rajasthan-Kerala": 4400
+    };
+    const amenitiesPricing = {
+        "WiFi": 50,
+        "Food": 100,
+        "Seats": 80,
+        "Entertainment": 70,
+        "Charging": 30,
+        "Restrooms": 60
+    };
+    function calculatePrice() {
+        const busType = busTypeSelect.value;
+        const from = fromSelect.value;
+        const to = toSelect.value;
+        if (!busType || !from || !to) {
+            priceInput.value = "Select all fields";
+            return;
+        }
+        let baseFare = busFares[busType] || 500;
+        let distanceKey = `${from}-${to}`;
+        let distanceFare = distancePricing[distanceKey] || 200;
+        let totalFare = baseFare + distanceFare;
+        let amenitiesCost = 0;
+        let selectedAmenities = [];
+        amenitiesCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedAmenities.push(`${checkbox.value} (₹${amenitiesPricing[checkbox.value]})`);
+                amenitiesCost += amenitiesPricing[checkbox.value] || 0;
+            }
+        });
+        totalFare += amenitiesCost;
+        priceInput.value = `₹${totalFare}`;
+    }
+    [busTypeSelect, fromSelect, toSelect, ...amenitiesCheckboxes].forEach(element => {
+        element.addEventListener("change", calculatePrice);
+    });
+     openBusFormBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        busInfo.classList.add("hidden");
+        busForm.classList.remove("hidden");
+    });
+    submitBusFormBtn.addEventListener("click", function () {
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+        if (!priceInput.value || priceInput.value === "₹0" || priceInput.value === "Select all fields") {
+            alert("Please select the bus type and destination to calculate price.");
+            return;
+        }
+        if (!date || !time) {
+            alert("Please select the date and time for your journey.");
+            return;
+        }
+        busForm.classList.add("hidden");
+        passengerForm.classList.remove("hidden");
+    });
+    backToBusFormBtn.addEventListener("click", function () {
+        passengerForm.classList.add("hidden");
+        busForm.classList.remove("hidden");
+    });
+    payNowBtn.addEventListener("click", function () {
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const adults = document.getElementById("adults").value;
+        const children = document.getElementById("children").value;
+        if (!name || !phone || !email || !adults || !children) {
+            alert("Please fill in all passenger details before proceeding.");
+            return;
+        }
+        const finalPrice = parseFloat(priceInput.value.replace("₹", ""));
+        const pnr = "PNR" + Math.floor(100000 + Math.random() * 900000);
+        let selectedAmenities = [];
+        let totalAmenitiesCost = 0;
+        amenitiesCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedAmenities.push(`${checkbox.value} (₹${amenitiesPricing[checkbox.value]})`);
+                totalAmenitiesCost += amenitiesPricing[checkbox.value] || 0;
+            }
+        });
+        let selectedAmenitiesText = selectedAmenities.length > 0 ? selectedAmenities.join(", ") : "None";
+        const gstRate = 18; 
+        const gstAmount = (finalPrice * gstRate) / 100;
+        const totalInvoiceValue = finalPrice + gstAmount + totalAmenitiesCost;
+        const ticketContent = `
+        ======================================================
+                 🚌  RURAL RETREATS BUS TICKET  🎟️
+        ======================================================
+        🆔  **PNR No:**        ${pnr}
+        📍  **FROM:**          ${fromSelect.value}  
+        🎯  **TO:**            ${toSelect.value}
+        🚌  **BUS TYPE:**      ${busTypeSelect.value}
+        📅  **DATE:**          ${document.getElementById("date").value}  
+        ⏰  **TIME:**          ${document.getElementById("time").value}
+        =====================================================
+                      📄  PASSENGER DETAILS
+        =====================================================
+        👤  **NAME:**          ${name}
+        📞  **PHONE:**         ${document.getElementById("phone").value}
+        📧  **EMAIL:**         ${document.getElementById("email").value}
+        👥  **ADULTS:**        ${document.getElementById("adults").value}    
+        🧒  **CHILDREN:**      ${document.getElementById("children").value}
+        =====================================================
+                  🚏  BUS OPERATOR INFORMATION
+        =====================================================
+        🏢  **OPERATOR NAME:**  Rural Retreats Travels Pvt Ltd
+        📍  **ADDRESS:**         University Institute Of Technology, 
+                                 The University of Burdwan, Golapbag (North),    
+                                 Burdwan-713104, West Bengal.
+        📞  **CONTACT:**        +91 62XXX XXXXX
+        =====================================================
+                     💰  PAYMENT BREAKDOWN
+        =====================================================
+        💲  **BASE FARE:**          ₹${(finalPrice - totalAmenitiesCost).toFixed(2)}
+        💲  **SELECTED AMENITIES:** ${selectedAmenitiesText}
+        💲  **AMENITIES COST:**     ₹${totalAmenitiesCost.toFixed(2)}
+        💲  **GST (${gstRate}%):**    ₹${gstAmount.toFixed(2)}
+        -----------------------------------------------------
+        🏷  **TOTAL INVOICE VALUE:**  ₹${totalInvoiceValue.toFixed(2)}
+                ✅  **BOOKING CONFIRMED!**  🎉
+            THANK YOU FOR CHOOSING RURAL RETREATS!
+        =====================================================
+        `;
+        const blob = new Blob([ticketContent], { type: "text/plain" });
+        const anchor = document.createElement("a");
+        anchor.href = URL.createObjectURL(blob);
+        anchor.download = `Bus_Ticket_${name.replace(/\s+/g, "_")}.txt`;
+        anchor.click();
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const carouselWrapper = document.querySelector(".carousel-wrapper");
+    const packageCards = document.querySelectorAll(".package-card");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let currentIndex = 0;
+    function updateCarousel() {
+        const cardWidth = packageCards[0].offsetWidth;
+        carouselWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+    nextBtn.addEventListener("click", function () {
+        if (currentIndex < packageCards.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; 
+        }
+        updateCarousel();
+    });
+    prevBtn.addEventListener("click", function () {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = packageCards.length - 1; 
+        }
+        updateCarousel();
+    });
+    window.addEventListener("resize", updateCarousel);
+});
