@@ -1,0 +1,267 @@
+import React, { useState, useEffect, useCallback } from 'react';
+import { initializeApp } from 'firebase/app';
+import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from 'firebase/auth';
+import { getFirestore, doc, collection, setDoc, query, onSnapshot, serverTimestamp, deleteDoc } from 'firebase/firestore';
+
+// Define global variables provided by the Canvas environment
+const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-rural-app-id';
+
+// --- Mock Data ---
+const MOCK_RETREATS = [
+  { id: '1', title: "Alpine Zen Sanctuary", location: "Swiss Alps", theme: "Meditation & Hiking", price: 1200, icon: "⛰️" },
+  { id: '2', title: "Tuscan Harvest", location: "Rural Italy", theme: "Cooking & Wine", price: 950, icon: "🍇" },
+  { id: '3', title: "Desert Stargazing Camp", location: "Sahara", theme: "Astrology & Silence", price: 1500, icon: "✨" },
+  { id: '4', title: "Coastal Detox Retreat", location: "Kerala, India", theme: "Ayurveda & Yoga", price: 1100, icon: "🧘" },
+];
+
+// --- App Component ---
+export default function App() {
+  const [db, setDb] = useState(null);
+  const [auth, setAuth] = useState(null);
+  const [userId, setUserId] = useState(null);
+  const [isAuthReady, setIsAuthReady] = useState(false);
+  const [retreatPlans, setRetreatPlans] = useState([]);
+  const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+
+  // 1. Firebase Initialization and Authentication
+  useEffect(() => {
+    if (!firebaseConfig) {
+      console.error("Firebase config is missing.");
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const app = initializeApp(firebaseConfig);
+      const firestore = getFirestore(app);
+      const authentication = getAuth(app);
+
+      setDb(firestore);
+      setAuth(authentication);
+
+      // Auth state change listener
+      const unsubscribe = onAuthStateChanged(authentication, (user) => {
+        if (user) {
+          setUserId(user.uid);
+        } else {
+          setUserId(crypto.randomUUID()); // Anonymous ID if not authenticated
+        }
+        setIsAuthReady(true);
+        setIsLoading(false);
+      });
+
+      // Initial sign-in logic
+      const authenticate = async () => {
+        try {
+          if (initialAuthToken) {
+            await signInWithCustomToken(authentication, initialAuthToken);
+          } else {
+            await signInAnonymously(authentication);
+          }
+        } catch (error) {
+          console.error("Firebase Auth Error:", error);
+        }
+      };
+
+      authenticate();
+      return () => unsubscribe();
+    } catch (error) {
+      console.error("Firebase Initialization Error:", error);
+      setIsLoading(false);
+    }
+  }, []);
+
+  // 2. Firestore Data Listener (Real-time updates)
+  useEffect(() => {
+    if (!db || !isAuthReady) return;
+
+    // Define the collection path for public data (shared retreat plans)
+    const collectionPath = `/artifacts/${appId}/public/data/retreat_plans`;
+    const plansColRef = collection(db, collectionPath);
+    
+    // Set up real-time listener
+    const q = query(plansColRef);
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const plans = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setRetreatPlans(plans.sort((a, b) => (b.createdAt?.toMillis() || 0) - (a.createdAt?.toMillis() || 0)));
+      console.log(`Successfully loaded ${plans.length} retreat plans.`);
+    }, (error) => {
+      console.error("Firestore Snapshot Error:", error);
+    });
+
+    return () => unsubscribe(); 
+  }, [db, isAuthReady]);
+
+  // --- Firestore CRUD Operations ---
+
+  const handlePlanRetreat = useCallback(async (retreat) => {
+    if (!db || !userId) {
+      setMessage("Error: Database not ready or user ID missing.");
+      return;
+    }
+
+    // Use a UUID V4 as the document ID for true uniqueness (like we discussed!)
+    const planId = crypto.randomUUID(); 
+    const docPath = `/artifacts/${appId}/public/data/retreat_plans/${planId}`;
+
+    try {
+      await setDoc(doc(db, docPath), {
+        retreatId: retreat.id,
+        title: retreat.title,
+        location: retreat.location,
+        price: retreat.price,
+        plannerId: userId,
+        createdAt: serverTimestamp(),
+      });
+      setMessage(`Successfully planned the ${retreat.title}!`);
+    } catch (e) {
+      setMessage(`Error planning retreat: ${e.message}`);
+      console.error("Error adding document: ", e);
+    }
+  }, [db, userId]);
+
+  const handleDeletePlan = useCallback(async (planId) => {
+    if (!db) {
+      setMessage("Error: Database not ready.");
+      return;
+    }
+    
+    const docPath = `/artifacts/${appId}/public/data/retreat_plans/${planId}`;
+
+    try {
+      await deleteDoc(doc(db, docPath));
+      setMessage(`Plan (ID: ${planId.substring(0, 8)}...) removed.`);
+    } catch (e) {
+      setMessage(`Error deleting plan: ${e.message}`);
+      console.error("Error deleting document: ", e);
+    }
+  }, [db]);
+
+
+  // --- UI Rendering ---
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-50">
+        <p className="text-xl text-indigo-600">Loading App & Authenticating...</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="p-4 md:p-8 min-h-screen bg-gray-50">
+      <header className="text-center mb-10">
+        <h1 className="text-4xl font-extrabold text-indigo-700">Rural Retreats Planner</h1>
+        <p className="text-gray-500 mt-2">Find your escape and share your plans with others.</p>
+        <p className="text-xs text-gray-400 mt-2">
+          Your ID: <span className="font-mono text-xs text-indigo-500 bg-indigo-50 p-1 rounded">{userId}</span>
+        </p>
+      </header>
+
+      {/* Message Area */}
+      {message && (
+        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative mb-6 transition duration-300" role="alert">
+          <span className="block sm:inline">{message}</span>
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        {/* Retreat Ideas Section */}
+        <div className="lg:col-span-2">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b pb-2">Retreat Ideas</h2>
+          <div className="space-y-4">
+            {MOCK_RETREATS.map(retreat => (
+              <RetreatCard 
+                key={retreat.id} 
+                retreat={retreat} 
+                onPlan={() => handlePlanRetreat(retreat)} 
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Planned Retreats Section */}
+        <div className="lg:col-span-1">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b pb-2">Planned Retreats ({retreatPlans.length})</h2>
+          <div className="bg-white p-4 rounded-xl shadow-lg space-y-3 max-h-96 overflow-y-auto">
+            {retreatPlans.length === 0 ? (
+              <p className="text-gray-500 text-center py-4">No one has planned a retreat yet. Be the first!</p>
+            ) : (
+              retreatPlans.map(plan => (
+                <PlannedRetreatItem 
+                  key={plan.id} 
+                  plan={plan} 
+                  userId={userId} 
+                  onDelete={handleDeletePlan}
+                />
+              ))
+            )}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+// --- Sub-Components ---
+
+const RetreatCard = React.memo(({ retreat, onPlan }) => (
+  <div className="bg-white p-5 rounded-xl shadow-lg flex justify-between items-center transition transform hover:shadow-xl hover:-translate-y-0.5">
+    <div>
+      <p className="text-3xl inline-block mr-3">{retreat.icon}</p>
+      <span className="text-xl font-semibold text-gray-900">{retreat.title}</span>
+      <p className="text-sm text-indigo-500 mt-1">{retreat.location} | Theme: {retreat.theme}</p>
+    </div>
+    <div className="flex flex-col items-end">
+      <p className="text-lg font-bold text-green-600 mb-2">${retreat.price}</p>
+      <button 
+        onClick={onPlan}
+        className="py-2 px-4 bg-indigo-600 text-white text-sm font-medium rounded-lg shadow-md hover:bg-indigo-700 transition duration-150"
+      >
+        Plan This Retreat
+      </button>
+    </div>
+  </div>
+));
+
+const PlannedRetreatItem = React.memo(({ plan, userId, onDelete }) => {
+  const isMyPlan = plan.plannerId === userId;
+  const timeString = plan.createdAt ? new Date(plan.createdAt.toMillis()).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '...';
+
+  return (
+    <div className={`p-3 rounded-lg border ${isMyPlan ? 'bg-indigo-50 border-indigo-200' : 'bg-gray-50 border-gray-200'}`}>
+      <div className="flex justify-between items-start">
+        <div className="truncate pr-4">
+          <p className="font-medium text-gray-900 truncate" title={plan.title}>{plan.title}</p>
+          <p className="text-xs text-gray-500">
+            {plan.location} | <span className="text-indigo-500">Plan ID: {plan.id.substring(0, 4)}...</span>
+          </p>
+        </div>
+        <div className="flex-shrink-0">
+          {isMyPlan ? (
+            <button 
+              onClick={() => onDelete(plan.id)}
+              className="text-red-500 hover:text-red-700 transition"
+              title="Delete my plan"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.166L15.9 3.39M2.98 2.295c.704-.153 1.429-.23 2.155-.23h.384m-2.539.23-.384-.23C2.155.065 1.429-.012.704.041A1.77 1.77 0 0 0 0 1.258V21.74a1.77 1.77 0 0 0 1.258 1.258c.704.053 1.429.022 2.155-.069h.384m-2.539.069.384.23c.704.053 1.429.022 2.155-.069h.384m2.539-.23-.384.23C2.155.065 1.429-.012.704.041A1.77 1.77 0 0 0 0 1.258V21.74a1.77 1.77 0 0 0 1.258 1.258c.704.053 1.429.022 2.155-.069h.384" />
+              </svg>
+            </button>
+          ) : (
+            <span className="text-xs text-gray-400">{timeString}</span>
+          )}
+        </div>
+      </div>
+      <p className="text-xs text-gray-400 mt-1">Planned by: <span className="font-mono">{plan.plannerId.substring(0, 8)}...</span></p>
+    </div>
+  );
+});
